@@ -1,56 +1,71 @@
-// const container = document.querySelector(".file");
-// let isDragging = false;
-// function onMouseDrag({ movementX, movementY }) {
-//     isDragging = true;
-//     container.style.cursor = "grabbing";
-//     let getContainerStyle = window.getComputedStyle(container);
-//     let leftValue = parseInt(getContainerStyle.left);
-//     let topValue = parseInt(getContainerStyle.top);
-//     container.style.left = `${leftValue + movementX}px`;
-//     container.style.top = `${topValue + movementY}px`;
-// }
-// container.addEventListener("mousedown", () => {
-//     container.addEventListener("mousemove", onMouseDrag);
-// });
-// document.addEventListener("mouseup", () => {
-//     container.removeEventListener("mousemove", onMouseDrag);
-// });
+// multiple folder draggables
+// explanation:
+
+//here we are selecting all the elements with the selector FILE 
+const allFolders = document.querySelectorAll(".file");
 
 
-const container = document.querySelector(".file");
+// in this function, we want to randomize the position of each file object
+function randomizePosition(folder){
 
-let isDragging = false; // Track dragging state
+    //to make it dynamic, there's a folderWidth variable which uses a function - just incase i change the width of the img
+    const folderWidth = folder.getBoundingClientRect().width;
+    //removing folderWidth from the entire window width so we dont end up outside the screen
+    const randomLeft = Math.floor(Math.random() * (window.innerWidth - folderWidth));
+    const randomTop = Math.floor(Math.random() * (window.innerHeight - folderWidth)); // Same idea for vertical position
+    
+    //edit style sheet
+    folder.style.left = `${randomLeft}px`;
+    folder.style.top = `${randomTop}px`;
+}
 
-container.addEventListener("mousedown", (event) => {
-    isDragging = true;
-    container.style.cursor = "grabbing"; // Change cursor on drag
+allFolders.forEach(folder => {
+    //randomize the position of each folder -- REVISIT THIS, might want a more orderly start
+    randomizePosition(folder);
+    makeDraggable(folder);
+});
 
-    let prevX = event.clientX;
-    let prevY = event.clientY;
+function makeDraggable(folder){
 
-    function onMouseMove(event) {
-        if (!isDragging) return;
+    let isDragging = false;
+    let prevX, prevY;
 
-        let movementX = event.clientX - prevX;
-        let movementY = event.clientY - prevY;
-        
-        let leftValue = parseInt(window.getComputedStyle(container).left);
-        let topValue = parseInt(window.getComputedStyle(container).top);
-
-        container.style.left = `${leftValue + movementX}px`;
-        container.style.top = `${topValue + movementY}px`;
-
+        //upon clicking the mouse, we know it's dragging, cursor changes, and the x,y coords are updated with the coords of the grab moment
+    folder.addEventListener("mousedown", (event) =>{
+        isDragging = true;
+        folder.style.cursor = "grabbing";
         prevX = event.clientX;
         prevY = event.clientY;
-    }
 
-    function onMouseUp() {
-        isDragging = false;
-        container.style.cursor = "grab"; // Reset cursor
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseup", onMouseUp);
-    }
+        //keep getting left and top values and tracking movement 
+        function onMouseMove(event){
+            if (!isDragging) return;
+            const movementX = event.clientX - prevX;
+            const movementY = event.clientY - prevY;
 
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-});
+            let leftValue = parseInt(window.getComputedStyle(folder).left);
+            let topValue = parseInt (window.getComputedStyle(folder).top);
+
+            folder.style.left = `${leftValue + movementX}px`;
+            folder.style.top = `${topValue + movementY}px`;
+
+            prevX = event.clientX;
+            prevY = event.clientY;
+        }
+        function onMouseUp(){
+        
+            isDragging = false; 
+            folder.style.cursor = "grab";
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
+
+        }
+        //once we grab, these event listeners are activated
+        document.addEventListener("mousemove", onMouseMove);
+         document.addEventListener("mouseup", onMouseUp);
+    });
+}
+
+
+
+
