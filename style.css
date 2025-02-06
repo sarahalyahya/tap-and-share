@@ -1,8 +1,15 @@
 body {
-    background-color: white;
+    background-color: none;
     overflow: hidden;
   }
   
+  .desktop{
+    position: absolute;
+    background-image: url("assets/windowsBg.jpg");
+    max-width: 100%;
+    height: auto;
+
+  }
   
   .file {
     background-color: black;
