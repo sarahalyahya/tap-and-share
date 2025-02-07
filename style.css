@@ -87,8 +87,13 @@ body {
   z-index: 8;
 }
 
+
+
 #login-header{
   font-size: 5rem;
+  color: #000000;
+  text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+  animation: shadow-dance 2s infinite;
 }
 
 #login-form{
@@ -123,4 +128,13 @@ body {
 #login-btn:focus {
   outline: 0;
   border: 2px solid #B9D0F0;
+}
+
+@keyframes shadow-dance {
+  0%, 100% {
+      text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+  }
+  50% {
+      text-shadow: -5px -5px 0 #00d4ff, -10px -10px 0 #ff005e;
+  }
 }
