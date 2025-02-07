@@ -1,12 +1,11 @@
 body {
     background-color: none;
     overflow: hidden;
+    z-index: -10;
   }
   
-  .desktop{
-    
-
-    position: absolute; /* or fixed if you want it to stay on screen */
+   .desktop{
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100vw;
@@ -17,8 +16,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    z-index:-1;
+    pointer-events: none;
+  } 
 
-  }
+  
   
   .file {
     background-color: black;
@@ -32,11 +34,13 @@ body {
     transform: translate(-50%, -50%);
     cursor: grab;
     user-select: none;
+    z-index: 10;
   }
 
   .folderimg{
     max-width: 30%;
-    max-height: 30%
+    max-height: 30%;
+    z-index:10;
 
   }
   
