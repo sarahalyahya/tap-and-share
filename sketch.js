@@ -3,8 +3,14 @@
 
 //here we are selecting all the elements with the selector FILE 
 const allFolders = document.querySelectorAll(".file");
+const loginForm = document.getElementById("login");
 
 
+allFolders.forEach(folder => {
+    //randomize the position of each folder -- REVISIT THIS, might want a more orderly start
+    randomizePosition(folder);
+    makeDraggable(folder);
+});
 // in this function, we want to randomize the position of each file object
 function randomizePosition(folder){
 
@@ -19,11 +25,6 @@ function randomizePosition(folder){
     folder.style.top = `${randomTop}px`;
 }
 
-allFolders.forEach(folder => {
-    //randomize the position of each folder -- REVISIT THIS, might want a more orderly start
-    randomizePosition(folder);
-    makeDraggable(folder);
-});
 
 function makeDraggable(folder){
 
@@ -65,6 +66,13 @@ function makeDraggable(folder){
          document.addEventListener("mouseup", onMouseUp);
     });
 }
+
+function makeInvisible(){
+    loginForm.style.visibility = "hidden";
+    allFolders.forEach(folder =>{
+        folder.style.visibility ="visible";
+    })
+}; 
 
 
 
