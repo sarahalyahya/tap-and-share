@@ -15,15 +15,22 @@ allFolders.forEach(folder => {
 function randomizePosition(folder){
 
     //to make it dynamic, there's a folderWidth variable which uses a function - just incase i change the width of the img
-    const folderWidth = folder.getBoundingClientRect().width;
+    const folderImg = document.querySelector(".folderimg");
+    const folderWidth = folderImg.clientWidth; // Get actual image width
+    const folderHeight = folderImg.clientHeight;
+    const padding = 100;
     //removing folderWidth from the entire window width so we dont end up outside the screen
-    const randomLeft = Math.floor(Math.random() * (window.innerWidth - folderWidth));
-    const randomTop = Math.floor(Math.random() * (window.innerHeight - folderWidth)); // Same idea for vertical position
-    
+    const maxX = window.innerWidth - folderWidth - padding;  // Ensure it fits within width and height
+    const maxY = window.innerHeight - folderHeight - padding; 
+
+    const randomX = Math.random() * (maxX - padding) + padding;
+    const randomY = Math.random() * (maxY - padding) + padding;
+
     //edit style sheet
-    folder.style.left = `${randomLeft}px`;
-    folder.style.top = `${randomTop}px`;
+    folder.style.left = `${randomX}px`;
+    folder.style.top = `${randomY}px`;
 }
+
 
 
 function makeDraggable(folder){

@@ -67,4 +67,41 @@ body {
   visibility: visible;
   z-index: 8;
 }
+
+#login-header{
+  font-size: 5rem;
+}
+
+#login-form{
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.login-form-field {
+  border: none;
+  border: 1px solid #3a3a3a;
+  margin-bottom: 3rem;
+  margin-top: 0.5rem;
+  border-radius: 3px;
+  outline:#3a3a3a; 
+  padding: 0rem 0rem 0.2rem 0.2rem;
+  width: 15rem;
+  font-size: 1.5rem;
+}
   
+#login-btn {
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  border: 1px solid RGB(1, 63, 102);
+  border-radius: 3px;
+  display: inline;
+  margin-right: 1rem;
+  background: linear-gradient(to bottom, #f6f6f6 0%, #ffffff 6%, #fffdfe 12%, #fbf9fa 18%, #f8f7f5 41%, #f7f3f0 47%, #f8f3ef 82%, #e7e0d8 94%, #dad3c9 100%);
+}
+
+#login-btn:hover,
+#login-btn:focus {
+  outline: 0;
+  border: 2px solid #B9D0F0;
+}
