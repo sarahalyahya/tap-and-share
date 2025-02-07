@@ -36,11 +36,13 @@ function randomizePosition(folder){
 function makeDraggable(folder){
 
     let isDragging = false;
+    let hasMoved = false;
     let prevX, prevY;
 
         //upon clicking the mouse, we know it's dragging, cursor changes, and the x,y coords are updated with the coords of the grab moment
     folder.addEventListener("mousedown", (event) =>{
         isDragging = true;
+        hasMoved = false;
         folder.style.cursor = "grabbing";
         prevX = event.clientX;
         prevY = event.clientY;
@@ -48,6 +50,8 @@ function makeDraggable(folder){
         //keep getting left and top values and tracking movement 
         function onMouseMove(event){
             if (!isDragging) return;
+
+            hasMoved = true;
             const movementX = event.clientX - prevX;
             const movementY = event.clientY - prevY;
 
@@ -70,7 +74,13 @@ function makeDraggable(folder){
         }
         //once we grab, these event listeners are activated
         document.addEventListener("mousemove", onMouseMove);
-         document.addEventListener("mouseup", onMouseUp);
+        document.addEventListener("mouseup", onMouseUp);
+    });
+    folder.addEventListener("dblclick", () => {
+    if(!isDragging && !hasMoved){
+        openFolder(folder);
+    }
+    
     });
 }
 
@@ -81,6 +91,11 @@ function makeInvisible(){
     })
 }; 
 
+function openFolder(){
+    //const folderName = folder.querySelector(".file-name").textContent;
+    //console.log("clicked!");
+    window.location.href = "videos.html"; // Navigate based on folder name
+}
 
 
 
