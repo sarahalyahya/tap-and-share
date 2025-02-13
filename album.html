@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Notebook Flip</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #container { display: flex; flex-direction: column; align-items: center; }
+        #viewer { width: 60vw; height: 80vh; object-fit: contain;  }
+        button { margin: 10px; padding: 0px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <button onclick="nextImage()">⬆</button>
+        <img id="viewer" src="albumAssets/photo_001.png" alt="Notebook Page">
+        <button onclick="prevImage()">⬇</button>
+    </div>
+
+    <script>
+        const images = ["albumAssets/photo_001.png", "albumAssets/photo_002.png", "albumAssets/photo_003.png","albumAssets/photo_004.png","albumAssets/photo_005.png","albumAssets/photo_006.png","albumAssets/photo_007.png"];
+        let currentIndex = 0;
+        const viewer = document.getElementById("viewer");
+
+        function updateImage() {
+            viewer.src = images[currentIndex];
+        }
+
+        function nextImage() {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                updateImage();
+            }
+        }
+
+        function prevImage() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateImage();
+            }
+        }
+    </script>
+
+</body>
+</html>
