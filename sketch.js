@@ -4,6 +4,7 @@
 //here we are selecting all the elements with the selector FILE 
 const allFolders = document.querySelectorAll(".file");
 const loginForm = document.getElementById("login");
+const loginButton = document.getElementById("login-btn"); 
 
 
 allFolders.forEach(folder => {
@@ -83,6 +84,8 @@ function makeDraggable(folder){
     
     });
 }
+
+loginButton.addEventListener("click", makeInvisible); 
 
 function makeInvisible(){
     loginForm.style.visibility = "hidden";
