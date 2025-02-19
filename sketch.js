@@ -1,5 +1,4 @@
-// multiple folder draggables
-// explanation:
+
 
 //here we are selecting all the elements with the selector FILE 
 const allFolders = document.querySelectorAll(".file");
@@ -25,6 +24,7 @@ allFolders.forEach(folder => {
     randomizePosition(folder);
     makeDraggable(folder);
 });
+
 // in this function, we want to randomize the position of each file object
 function randomizePosition(folder){
 
@@ -137,22 +137,13 @@ function closeChat(){
 }
 
 
-// async function loadMessages() {
-//     try {
-//         const response = await fetch("messages.json");
-//         const messages = await response.json();
-//         messages.forEach(({ username, message }) => {
-//             addMessage(message, username);
-//              new Promise(resolve => setTimeout(resolve, 1000)); // Delay of 1 second per message
-//         });
-//     } catch (error) {
-//         console.error("Error loading messages:", error);
-//     }
-// }
+
 
 async function loadMessages() {
     try {
+        //empty when clicking again
         chatBox.innerHTML = ""; 
+        //fetching from json and making object array
         const response = await fetch("messages.json");
         const messages = await response.json();
         let i = 0;
@@ -162,7 +153,7 @@ async function loadMessages() {
                 const { username, message } = messages[i];
                 addMessage(message, username);
                 i++;
-                setTimeout(displayNextMessage, 3000); // Delay of 1 second before the next message
+                setTimeout(displayNextMessage, 3000); // delay of 3 seconds before the next message
             }
         }
 
@@ -173,19 +164,24 @@ async function loadMessages() {
 }
 
 function addMessage(text, user, isUser = false) {
+    //append msgs to document
     const messageElement = document.createElement("div");
     messageElement.classList.add("message");
+    //if it is current user, send as "You" if not send using the username from json
     messageElement.textContent = isUser ? `You: ${text}` : `${user}: ${text}`;
-    
+    //to display the new msg on the html file, otherwise it creates a div but never adds
     chatBox.appendChild(messageElement);
+    //always scrolling down to the button so most recent text showing
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 function sendMessage() {
+    
     const input = document.getElementById("userInput");
     const text = input.value.trim();
     if (text) {
         addMessage(text, "You", true);
+        //remove what someone types
         input.value = "";
     }
 }
