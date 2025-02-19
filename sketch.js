@@ -152,6 +152,7 @@ function closeChat(){
 
 async function loadMessages() {
     try {
+        chatBox.innerHTML = ""; 
         const response = await fetch("messages.json");
         const messages = await response.json();
         let i = 0;
@@ -161,7 +162,7 @@ async function loadMessages() {
                 const { username, message } = messages[i];
                 addMessage(message, username);
                 i++;
-                setTimeout(displayNextMessage, 7000); // Delay of 1 second before the next message
+                setTimeout(displayNextMessage, 3000); // Delay of 1 second before the next message
             }
         }
 
