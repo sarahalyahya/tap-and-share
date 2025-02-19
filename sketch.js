@@ -4,7 +4,12 @@
 //here we are selecting all the elements with the selector FILE 
 const allFolders = document.querySelectorAll(".file");
 const loginForm = document.getElementById("login");
-const loginButton = document.getElementById("login-btn"); 
+const loginButton = document.getElementById("login-btn");
+
+
+const sideBar = document.getElementById("sidebar");
+const sidebarWidth = parseFloat(getComputedStyle(sidebar).width);
+const sideBarHeight = parseFloat(getComputedStyle(sidebar).height);
 
 
 allFolders.forEach(folder => {
@@ -20,12 +25,16 @@ function randomizePosition(folder){
     const folderWidth = folderImg.clientWidth; // Get actual image width
     const folderHeight = folderImg.clientHeight;
     const padding = 100;
-    //removing folderWidth from the entire window width so we dont end up outside the screen
-    const maxX = window.innerWidth - folderWidth - padding;  // Ensure it fits within width and height
-    const maxY = window.innerHeight - folderHeight - padding; 
+   
+    const minX = sidebarWidth + padding; // Start after the sidebar
+    const maxX = window.innerWidth - folderWidth - padding; // Keep within screen width
 
-    const randomX = Math.random() * (maxX - padding) + padding;
-    const randomY = Math.random() * (maxY - padding) + padding;
+    const minY = padding; // Prevent going off the top
+    const maxY = window.innerHeight - folderHeight - padding; // Prevent going off the bottom
+
+    // Generate random X and Y within the allowed space
+    const randomX = Math.random() * (maxX - minX) + minX;
+    const randomY = Math.random() * (maxY - minY) + minY;
 
     //edit style sheet
     folder.style.left = `${randomX}px`;
@@ -88,7 +97,9 @@ function makeDraggable(folder){
 loginButton.addEventListener("click", makeInvisible); 
 
 function makeInvisible(){
+    console.log(sideBar.offsetWidth); 
     loginForm.style.visibility = "hidden";
+    sideBar.style.visibility = "visible";
     allFolders.forEach(folder =>{
         folder.style.visibility ="visible";
     })

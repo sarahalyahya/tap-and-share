@@ -138,3 +138,43 @@ body {
       text-shadow: -5px -5px 0 #00d4ff, -10px -10px 0 #ff005e;
   }
 }
+
+
+
+#sidebar {
+  visibility: hidden;
+  width: 10rem;
+  height: 100vh;
+  background-color: #f3f3f3;
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.9rem;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 1rem;
+}
+
+.sidebar-menu li:hover {
+  background: #ddd;
+}
