@@ -3,13 +3,21 @@
 
 //here we are selecting all the elements with the selector FILE 
 const allFolders = document.querySelectorAll(".file");
+
 const loginForm = document.getElementById("login");
 const loginButton = document.getElementById("login-btn");
+
 
 
 const sideBar = document.getElementById("sidebar");
 const sidebarWidth = parseFloat(getComputedStyle(sidebar).width);
 const sideBarHeight = parseFloat(getComputedStyle(sidebar).height);
+
+const openChatBtn = document.getElementById("open-chat-btn");
+const chatBox = document.getElementById("chatBox");
+const chatContainer = document.getElementById("chatContainer");
+const closeChatBtn = document.getElementById("close-chat-btn");
+const sendBtn = document.getElementById("sendBtn");
 
 
 allFolders.forEach(folder => {
@@ -111,5 +119,74 @@ function openFolder(){
     window.location.href = "videos.html"; // Navigate based on folder name
 }
 
+
+
+//chat pop up
+openChatBtn.addEventListener("click", openChat);
+closeChatBtn.addEventListener("click", closeChat);
+sendBtn.addEventListener("click", sendMessage);
+
+function openChat(){
+    chatContainer.style.display = "flex";
+    loadMessages();
+}
+
+function closeChat(){
+    console.log("you're clicking me!");
+    chatContainer.style.display = "none"; 
+}
+
+
+// async function loadMessages() {
+//     try {
+//         const response = await fetch("messages.json");
+//         const messages = await response.json();
+//         messages.forEach(({ username, message }) => {
+//             addMessage(message, username);
+//              new Promise(resolve => setTimeout(resolve, 1000)); // Delay of 1 second per message
+//         });
+//     } catch (error) {
+//         console.error("Error loading messages:", error);
+//     }
+// }
+
+async function loadMessages() {
+    try {
+        const response = await fetch("messages.json");
+        const messages = await response.json();
+        let i = 0;
+
+        function displayNextMessage() {
+            if (i < messages.length) {
+                const { username, message } = messages[i];
+                addMessage(message, username);
+                i++;
+                setTimeout(displayNextMessage, 10000); // Delay of 1 second before the next message
+            }
+        }
+
+        displayNextMessage(); // Start displaying messages
+    } catch (error) {
+        console.error("Error loading messages:", error);
+    }
+}
+
+function addMessage(text, user, isUser = false) {
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("message");
+    messageElement.textContent = isUser ? `You: ${text}` : `${user}: ${text}`;
+    
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const text = input.value.trim();
+    if (text) {
+        addMessage(text, "You", true);
+        input.value = "";
+    }
+}
 
 

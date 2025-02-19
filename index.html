@@ -57,7 +57,7 @@
       <ul class="sidebar-menu">
           <li><span class="icon">⬛</span>  Calculator</li>
           <li><span class="icon">⬛</span>  Glossary</li>
-          <li><span class="icon">⬛</span>  Chat</li>
+          <li id="open-chat-btn"><span class="icon">⬛</span>  Chat</li>
           <li><span class="icon">⬛</span>  Internet Explorer</li>
           <li><span class="icon">⬛</span>  Menu</li>
       </ul>
@@ -67,6 +67,19 @@
       <button id="toggleSidebar">☰</button>
   </div>
 
+
+  <!-- Chat Pop-up -->
+  <div class="chat-box-container" id="chatContainer">
+    <div class="chat-header">
+        <span>LIVE Chat</span>
+        <button class="close-btn" id="close-chat-btn">X</button>
+    </div>
+    <div class="chat-box" id="chatBox"></div>
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="Send a message...">
+        <button id="sendBtn">Send</button>
+    </div>
+</div>
 
 
     
