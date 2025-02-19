@@ -161,7 +161,7 @@ async function loadMessages() {
                 const { username, message } = messages[i];
                 addMessage(message, username);
                 i++;
-                setTimeout(displayNextMessage, 10000); // Delay of 1 second before the next message
+                setTimeout(displayNextMessage, 7000); // Delay of 1 second before the next message
             }
         }
 
