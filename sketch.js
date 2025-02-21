@@ -19,6 +19,9 @@ const closeChatBtn = document.getElementById("close-chat-btn");
 const sendBtn = document.getElementById("sendBtn");
 
 
+let popupsActive = false; 
+
+
 allFolders.forEach(folder => {
     //randomize the position of each folder -- REVISIT THIS, might want a more orderly start
     randomizePosition(folder);
@@ -111,6 +114,12 @@ function makeInvisible(){
     allFolders.forEach(folder =>{
         folder.style.visibility ="visible";
     })
+
+    if (!popupsActive){
+        popupsActive = true; 
+        startVidPopup(); 
+    }
+
 }; 
 
 function openFolder(){
@@ -185,5 +194,62 @@ function sendMessage() {
         input.value = "";
     }
 }
+// pop up videos
+
+//video array goes here (when there's multiple links)
+
+const ytURL = "https://www.youtube.com/embed/SWcIx33hd-Q"; 
+
+function generateVidPopup(){
+
+    //create pop up element
+    const videoPopup = document.createElement("div");
+    videoPopup.classList.add("video-popup");
+
+    //choose random vid from array goes here (when there's multiple links)
+
+    //create iframe which goes inside pop up
+    const videoIframe = document.createElement("iframe"); 
+    videoIframe.src = `${ytURL}?autoplay=1&modestbranding=1&showinfo=0&controls=0`;
+    videoIframe.width = "360"; 
+    videoIframe.height = "215";
+    videoIframe.allow = "autoplay"; 
+
+
+    const videoPopupClose = document.createElement("button");
+    videoPopupClose.classList.add("close-btn"); 
+    videoPopupClose.setAttribute("id","popup-close-btn");
+    videoPopupClose.textContent = "X";
+    videoPopupClose.onclick = () => videoPopup.remove();
+
+   
+    videoPopup.appendChild(videoIframe); 
+    videoPopup.appendChild(videoPopupClose);
+    document.body.appendChild(videoPopup); 
+
+  videoPopupPosition(videoPopup);  
+
+}
+
+function startVidPopup(){
+    setInterval(generateVidPopup, 3000); 
+}
+
+
+function videoPopupPosition(popup){
+    const padding = 20;
+    const maxX = window.innerWidth - popup.clientWidth - padding;
+    const maxY = window.innerHeight - popup.clientHeight - padding;
+
+    const randomX = Math.random() * (maxX - sidebarWidth) +sidebarWidth; 
+    const randomY = Math.random() * maxY; 
+
+    popup.style.left = `${randomX}px`;
+    popup.style.top = `${randomY}px`;
+
+}
+
+
+
 
 
