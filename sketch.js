@@ -18,8 +18,19 @@ const chatContainer = document.getElementById("chatContainer");
 const closeChatBtn = document.getElementById("close-chat-btn");
 const sendBtn = document.getElementById("sendBtn");
 
+const coinContainer = document.getElementById("coin-container");
+
+//random for later, will cause errors when it nears zero i think, so lets have it fixed for now
+// let coinBalance = Math.floor(Math.random()*51); 
+
+let coinBalance = 50;
+balanceDisplay = document.getElementById("balance"); 
+balanceDisplay.textContent = coinBalance; 
+
 
 let popupsActive = false; 
+
+
 
 
 allFolders.forEach(folder => {
@@ -111,6 +122,8 @@ function makeInvisible(){
     console.log(sideBar.offsetWidth); 
     loginForm.style.visibility = "hidden";
     sideBar.style.visibility = "visible";
+    coinContainer.style.visibility = "visible";
+
     allFolders.forEach(folder =>{
         folder.style.visibility ="visible";
     })
@@ -222,9 +235,16 @@ function generateVidPopup(){
     videoPopupClose.textContent = "X";
     videoPopupClose.onclick = () => videoPopup.remove();
 
+    const videoGiftButton = document.createElement("button");
+    videoGiftButton.classList.add("gift-button");
+    videoGiftButton.textContent = "Gift";
+    videoGiftButton.addEventListener("click",() => updateCoins(-5));
+    //on click here
+
    
     videoPopup.appendChild(videoIframe); 
     videoPopup.appendChild(videoPopupClose);
+    videoPopup.appendChild(videoGiftButton);
     document.body.appendChild(videoPopup); 
 
   videoPopupPosition(videoPopup);  
@@ -232,7 +252,7 @@ function generateVidPopup(){
 }
 
 function startVidPopup(){
-    setInterval(generateVidPopup, 3000); 
+    setInterval(generateVidPopup, 10000); 
 }
 
 
@@ -250,6 +270,15 @@ function videoPopupPosition(popup){
 }
 
 
+function updateCoins(amount){
+   coinBalance= Math.max(0, coinBalance+amount);
+    balanceDisplay.textContent = coinBalance;
+    
+   
 
+    if (coinBalance == 0){
+        alert("You're out of coins!");
+    }
+}
 
 
