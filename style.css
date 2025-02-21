@@ -175,6 +175,16 @@ body {
   font-size: 1rem;
 }
 
+
+/* #toggleSidebar {
+  left: 260px;
+  top: 1rem;
+  background: #444;
+  color: black;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+} */
 .sidebar-menu li:hover {
   background: #ddd;
 }

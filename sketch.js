@@ -142,6 +142,8 @@ function openFolder(){
 
 
 
+
+
 //chat pop up
 openChatBtn.addEventListener("click", openChat);
 closeChatBtn.addEventListener("click", closeChat);
