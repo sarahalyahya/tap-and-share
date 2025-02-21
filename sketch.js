@@ -18,16 +18,15 @@ const chatContainer = document.getElementById("chatContainer");
 const closeChatBtn = document.getElementById("close-chat-btn");
 const sendBtn = document.getElementById("sendBtn");
 
-const coinContainer = document.getElementById("coin-container");
-
 //random for later, will cause errors when it nears zero i think, so lets have it fixed for now
 // let coinBalance = Math.floor(Math.random()*51); 
 
+const coinContainer = document.getElementById("coin-container");
 let coinBalance = 50;
 balanceDisplay = document.getElementById("balance"); 
 balanceDisplay.textContent = coinBalance; 
 
-
+//so theyre not active on login screen
 let popupsActive = false; 
 
 
@@ -228,18 +227,19 @@ function generateVidPopup(){
     videoIframe.height = "215";
     videoIframe.allow = "autoplay"; 
 
-
+    //close btn
     const videoPopupClose = document.createElement("button");
     videoPopupClose.classList.add("close-btn"); 
     videoPopupClose.setAttribute("id","popup-close-btn");
     videoPopupClose.textContent = "X";
     videoPopupClose.onclick = () => videoPopup.remove();
 
+    //donate button, needs to be gift specific later aaaaaAAA
     const videoGiftButton = document.createElement("button");
     videoGiftButton.classList.add("gift-button");
     videoGiftButton.textContent = "Gift";
     videoGiftButton.addEventListener("click",() => updateCoins(-5));
-    //on click here
+    
 
    
     videoPopup.appendChild(videoIframe); 
@@ -251,11 +251,13 @@ function generateVidPopup(){
 
 }
 
+//every 10 seconds rn
 function startVidPopup(){
     setInterval(generateVidPopup, 10000); 
 }
 
 
+//randomize
 function videoPopupPosition(popup){
     const padding = 20;
     const maxX = window.innerWidth - popup.clientWidth - padding;
@@ -270,12 +272,13 @@ function videoPopupPosition(popup){
 }
 
 
+
 function updateCoins(amount){
    coinBalance= Math.max(0, coinBalance+amount);
     balanceDisplay.textContent = coinBalance;
     
    
-
+//stylizing an alert will def be better (so make one)
     if (coinBalance == 0){
         alert("You're out of coins!");
     }
