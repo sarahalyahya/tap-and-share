@@ -212,7 +212,7 @@ function sendMessage() {
 
 //video array goes here (when there's multiple links)
 
-const ytURL = "https://www.youtube.com/embed/SWcIx33hd-Q"; 
+const ytURL = "https://www.youtube.com/embed/SWcIx33hd-Q?"; 
 
 function generateVidPopup(){
 
@@ -225,9 +225,10 @@ function generateVidPopup(){
     //create iframe which goes inside pop up
     const videoIframe = document.createElement("iframe"); 
     videoIframe.src = `${ytURL}?autoplay=1&modestbranding=1&showinfo=0&controls=0`;
-    videoIframe.width = "360"; 
-    videoIframe.height = "215";
-    videoIframe.allow = "autoplay"; 
+    // videoIframe.width = "200"; 
+    // videoIframe.height = "560";
+    videoIframe.allow = "autoplay; encrypted-media";
+
 
     //close btn
     const videoPopupClose = document.createElement("button");
@@ -255,7 +256,7 @@ function generateVidPopup(){
 
 //every 10 seconds rn
 function startVidPopup(){
-    setInterval(generateVidPopup, 10000); 
+    setInterval(generateVidPopup, 5000); 
 }
 
 
