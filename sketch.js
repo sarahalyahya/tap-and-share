@@ -27,6 +27,12 @@ const convertCurrencyBtn = document.getElementById("convert-btn");
 const conversionResult = document.getElementById("result");
 const amountInput = document.getElementById("currency-amount");
 
+
+const glossaryContainer = document.getElementById("glossary-container");
+const openGlossaryBtn = document.getElementById("open-glossary-btn");
+const closeGlossaryBtn = document.getElementById("close-glossary-btn");
+
+
 //random for later, will cause errors when it nears zero i think, so lets have it fixed for now
 // let coinBalance = Math.floor(Math.random()*51); 
 
@@ -342,8 +348,13 @@ let result;
     console.log("op 2");
   
   }
+})
 
+//open +close glossary
+openGlossaryBtn.addEventListener("click", function() {
+    glossaryContainer.style.display = "block"; 
+})
 
-  
-
+closeGlossaryBtn.addEventListener("click", function(){
+    glossaryContainer.style.display = "none";
 })
