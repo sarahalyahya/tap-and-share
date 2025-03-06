@@ -18,6 +18,15 @@ const chatContainer = document.getElementById("chatContainer");
 const closeChatBtn = document.getElementById("close-chat-btn");
 const sendBtn = document.getElementById("sendBtn");
 
+
+const currencyContainer = document.getElementById("currency-container");
+const openCurrencyBtn= document.getElementById("open-currency-btn");
+const closeCurrencyBtn = document.getElementById("close-currency-btn");
+const conversionSelect = document.getElementById("currency-select"); 
+const convertCurrencyBtn = document.getElementById("convert-btn"); 
+const conversionResult = document.getElementById("result");
+const amountInput = document.getElementById("currency-amount");
+
 //random for later, will cause errors when it nears zero i think, so lets have it fixed for now
 // let coinBalance = Math.floor(Math.random()*51); 
 
@@ -32,88 +41,88 @@ let popupsActive = false;
 
 
 
-allFolders.forEach(folder => {
-    //randomize the position of each folder -- REVISIT THIS, might want a more orderly start
-    randomizePosition(folder);
-    makeDraggable(folder);
-});
+// allFolders.forEach(folder => {
+//     //randomize the position of each folder -- REVISIT THIS, might want a more orderly start
+//     randomizePosition(folder);
+//     makeDraggable(folder);
+// });
 
-// in this function, we want to randomize the position of each file object
-function randomizePosition(folder){
+// // in this function, we want to randomize the position of each file object
+// function randomizePosition(folder){
 
-    //to make it dynamic, there's a folderWidth variable which uses a function - just incase i change the width of the img
-    const folderImg = document.querySelector(".folderimg");
-    const folderWidth = folderImg.clientWidth; // Get actual image width
-    const folderHeight = folderImg.clientHeight;
-    const padding = 100;
+//     //to make it dynamic, there's a folderWidth variable which uses a function - just incase i change the width of the img
+//     const folderImg = document.querySelector(".folderimg");
+//     const folderWidth = folderImg.clientWidth; // Get actual image width
+//     const folderHeight = folderImg.clientHeight;
+//     const padding = 100;
    
-    const minX = sidebarWidth + padding; // Start after the sidebar
-    const maxX = window.innerWidth - folderWidth - padding; // Keep within screen width
+//     const minX = sidebarWidth + padding; // Start after the sidebar
+//     const maxX = window.innerWidth - folderWidth - padding; // Keep within screen width
 
-    const minY = padding; // Prevent going off the top
-    const maxY = window.innerHeight - folderHeight - padding; // Prevent going off the bottom
+//     const minY = padding; // Prevent going off the top
+//     const maxY = window.innerHeight - folderHeight - padding; // Prevent going off the bottom
 
-    // Generate random X and Y within the allowed space
-    const randomX = Math.random() * (maxX - minX) + minX;
-    const randomY = Math.random() * (maxY - minY) + minY;
+//     // Generate random X and Y within the allowed space
+//     const randomX = Math.random() * (maxX - minX) + minX;
+//     const randomY = Math.random() * (maxY - minY) + minY;
 
-    //edit style sheet
-    folder.style.left = `${randomX}px`;
-    folder.style.top = `${randomY}px`;
-}
+//     //edit style sheet
+//     folder.style.left = `${randomX}px`;
+//     folder.style.top = `${randomY}px`;
+// }
 
 
 
-function makeDraggable(folder){
+// function makeDraggable(folder){
 
-    let isDragging = false;
-    let hasMoved = false;
-    let prevX, prevY;
+//     let isDragging = false;
+//     let hasMoved = false;
+//     let prevX, prevY;
 
-        //upon clicking the mouse, we know it's dragging, cursor changes, and the x,y coords are updated with the coords of the grab moment
-    folder.addEventListener("mousedown", (event) =>{
-        isDragging = true;
-        hasMoved = false;
-        folder.style.cursor = "grabbing";
-        prevX = event.clientX;
-        prevY = event.clientY;
+//         //upon clicking the mouse, we know it's dragging, cursor changes, and the x,y coords are updated with the coords of the grab moment
+//     folder.addEventListener("mousedown", (event) =>{
+//         isDragging = true;
+//         hasMoved = false;
+//         folder.style.cursor = "grabbing";
+//         prevX = event.clientX;
+//         prevY = event.clientY;
 
-        //keep getting left and top values and tracking movement 
-        function onMouseMove(event){
-            if (!isDragging) return;
+//         //keep getting left and top values and tracking movement 
+//         function onMouseMove(event){
+//             if (!isDragging) return;
 
-            hasMoved = true;
-            const movementX = event.clientX - prevX;
-            const movementY = event.clientY - prevY;
+//             hasMoved = true;
+//             const movementX = event.clientX - prevX;
+//             const movementY = event.clientY - prevY;
 
-            let leftValue = parseInt(window.getComputedStyle(folder).left);
-            let topValue = parseInt (window.getComputedStyle(folder).top);
+//             let leftValue = parseInt(window.getComputedStyle(folder).left);
+//             let topValue = parseInt (window.getComputedStyle(folder).top);
 
-            folder.style.left = `${leftValue + movementX}px`;
-            folder.style.top = `${topValue + movementY}px`;
+//             folder.style.left = `${leftValue + movementX}px`;
+//             folder.style.top = `${topValue + movementY}px`;
 
-            prevX = event.clientX;
-            prevY = event.clientY;
-        }
-        function onMouseUp(){
+//             prevX = event.clientX;
+//             prevY = event.clientY;
+//         }
+//         function onMouseUp(){
         
-            isDragging = false; 
-            folder.style.cursor = "grab";
-            document.removeEventListener("mousemove", onMouseMove);
-            document.removeEventListener("mouseup", onMouseUp);
+//             isDragging = false; 
+//             folder.style.cursor = "grab";
+//             document.removeEventListener("mousemove", onMouseMove);
+//             document.removeEventListener("mouseup", onMouseUp);
 
-        }
-        //once we grab, these event listeners are activated
-        document.addEventListener("mousemove", onMouseMove);
-        document.addEventListener("mouseup", onMouseUp);
-    });
-    folder.addEventListener("dblclick", () => {
-    if(!isDragging && !hasMoved){
-        openFolder(folder);
-    }
+//         }
+//         //once we grab, these event listeners are activated
+//         document.addEventListener("mousemove", onMouseMove);
+//         document.addEventListener("mouseup", onMouseUp);
+//     });
+//     folder.addEventListener("dblclick", () => {
+//     if(!isDragging && !hasMoved){
+//         openFolder(folder);
+//     }
     
-    });
-}
+//     });
+// }
 
 loginButton.addEventListener("click", makeInvisible); 
 
@@ -123,9 +132,9 @@ function makeInvisible(){
     sideBar.style.visibility = "visible";
     coinContainer.style.visibility = "visible";
 
-    allFolders.forEach(folder =>{
-        folder.style.visibility ="visible";
-    })
+    // allFolders.forEach(folder =>{
+    //     folder.style.visibility ="visible";
+    // })
 
     if (!popupsActive){
         popupsActive = true; 
@@ -134,11 +143,11 @@ function makeInvisible(){
 
 }; 
 
-function openFolder(){
-    //const folderName = folder.querySelector(".file-name").textContent;
-    //console.log("clicked!");
-    window.location.href = "videos.html"; // Navigate based on folder name
-}
+// function openFolder(){
+//     //const folderName = folder.querySelector(".file-name").textContent;
+//     //console.log("clicked!");
+//     window.location.href = "videos.html"; // Navigate based on folder name
+// }
 
 
 
@@ -212,7 +221,7 @@ function sendMessage() {
 
 //video array goes here (when there's multiple links)
 
-const ytURL = "https://www.youtube.com/embed/SWcIx33hd-Q?"; 
+const URL = "https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"; 
 
 function generateVidPopup(){
 
@@ -224,7 +233,8 @@ function generateVidPopup(){
 
     //create iframe which goes inside pop up
     const videoIframe = document.createElement("iframe"); 
-    videoIframe.src = `${ytURL}?autoplay=1&modestbranding=1&showinfo=0&controls=0`;
+    //  videoIframe.src = `${ytURL}?autoplay=1&modestbranding=1&showinfo=0&controls=0`;
+    videoIframe.src = URL;
     // videoIframe.width = "200"; 
     // videoIframe.height = "560";
     videoIframe.allow = "autoplay; encrypted-media";
@@ -254,9 +264,11 @@ function generateVidPopup(){
 
 }
 
+
+
 //every 10 seconds rn
 function startVidPopup(){
-    setInterval(generateVidPopup, 5000); 
+    setInterval(generateVidPopup, 5000000); 
 }
 
 
@@ -288,3 +300,50 @@ function updateCoins(amount){
 }
 
 
+
+//Currency convert
+openCurrencyBtn.addEventListener("click", function(){
+    currencyContainer.style.display = "block";
+
+})
+
+closeCurrencyBtn.addEventListener("click",function(){
+    currencyContainer.style.display = "none"; 
+    amountInput.value="";
+    conversionResult.innerHTML="";
+
+})
+
+convertCurrencyBtn.addEventListener("click", function(){
+  let userConversionInput = parseFloat(document.getElementById("currency-amount").value);
+  let conversionSelectValue = conversionSelect.value;
+
+  
+  if (isNaN(userConversionInput) || userConversionInput <= 0) {
+    conversionResult.innerHTML = "Please enter a valid amount.";
+    return;
+}
+
+
+let coinsToUSD = 0.013;
+let USDToCoins = 78;
+let result; 
+
+  if(conversionSelectValue == "USD-to-coins"){
+    result = userConversionInput*USDToCoins;
+    conversionResult.innerHTML = `${userConversionInput} USD ≈ ${result.toFixed(2)} TikTok Coins`;
+    console.log("op 1");
+
+   
+    
+  } else {
+    result = userConversionInput*coinsToUSD;
+    conversionResult.innerHTML = `${userConversionInput} TikTok Coins ≈ ${result.toFixed(2)} USD`;
+    console.log("op 2");
+  
+  }
+
+
+  
+
+})

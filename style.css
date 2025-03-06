@@ -261,6 +261,80 @@ input {
 }
 
 
+/* currency */
+#currency-container{
+  position: fixed;
+  bottom: 5rem;
+  right: 38rem;
+  left: 50rem;
+  width: 17rem;
+  height: 22rem;
+  border-radius: 0.5rem;
+  background-color: #B9D0F0;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  display: none;
+}
+
+#currency-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#close-currency-btn {
+  color: black;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#currency-content label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#currency-content input, #currency-content select {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.3rem;
+}
+
+#convert-btn {
+  background-color: #ff4757;
+  color: white;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0.3rem;
+}
+
+#convert-btn:hover {
+  background-color: #e84118;
+}
+
+.result {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Show calculator when active */
+/* .show {
+  display: block !important;
+} */
+
+
 .video-popup {
   position: fixed;
   bottom: 20rem;
