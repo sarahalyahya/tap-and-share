@@ -363,6 +363,32 @@ input {
 
 
 
+.ad-popup {
+  position: fixed;
+  bottom: 20rem;
+  right: 1rem;
+  left: 15rem;
+  width: 17rem; /* Keep width fixed or make it responsive */
+  height: 23rem; /* Let it grow based on content */
+  aspect-ratio: 9 / 16; 
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+  z-index: 1000; 
+}
+
+.ad-popup img{
+  width: 15rem;
+  height: auto;
+  max-width: 90vw;  
+  max-height: 80vh;
+
+}
+
 #popup-close-btn{
   position: absolute;
   top: 0.5rem;

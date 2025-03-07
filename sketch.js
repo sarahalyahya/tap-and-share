@@ -266,7 +266,7 @@ function generateVidPopup(){
     videoPopup.appendChild(videoGiftButton);
     document.body.appendChild(videoPopup); 
 
-  videoPopupPosition(videoPopup);  
+  PopupPosition(videoPopup);  
 
 }
 
@@ -275,11 +275,12 @@ function generateVidPopup(){
 //every 10 seconds rn
 function startVidPopup(){
     setInterval(generateVidPopup, 5000000); 
+    setInterval(generateAdPopup, 30000);
 }
 
 
 //randomize
-function videoPopupPosition(popup){
+function PopupPosition(popup){
     const padding = 20;
     const maxX = window.innerWidth - popup.clientWidth - padding;
     const maxY = window.innerHeight - popup.clientHeight - padding;
@@ -292,6 +293,40 @@ function videoPopupPosition(popup){
 
 }
 
+const adImgs = ["assets/ads/cakemarketing.png", "assets/ads/reducedPriceBoxing!.png"]
+
+//pop up ads
+function generateAdPopup(){
+
+    //create pop up element
+    const adPopup = document.createElement("div");
+    adPopup.classList.add("ad-popup");
+
+    //choose random vid from array goes here (when there's multiple links)
+
+    //create iframe which goes inside pop up
+    const adImg = document.createElement("img"); 
+    adImg.src = adImgs[Math.floor(Math.random() * 2)]
+
+
+    //close btn
+    const adPopupClose = document.createElement("button");
+    adPopupClose.classList.add("close-btn"); 
+    adPopupClose.setAttribute("id","popup-close-btn");
+    adPopupClose.textContent = "X";
+    adPopupClose.onclick = () => adPopup.remove();
+
+    //donate button, needs to be gift specific later aaaaaAAA
+    
+
+   
+    adPopup.appendChild(adImg); 
+    adPopup.appendChild(adPopupClose);
+    document.body.appendChild(adPopup); 
+
+  PopupPosition(adPopup);  
+
+}
 
 
 function updateCoins(amount){
