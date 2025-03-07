@@ -342,7 +342,7 @@ function updateCoins(amount){
 
 
 
-//Currency convert
+//Currency convert (double check the math)
 openCurrencyBtn.addEventListener("click", function(){
     currencyContainer.style.display = "block";
 
@@ -355,6 +355,10 @@ closeCurrencyBtn.addEventListener("click",function(){
 
 })
 
+let coinsToUSD = 0.013;
+let USDToCoins = 78;
+const tiktokCut = 0.57; 
+
 convertCurrencyBtn.addEventListener("click", function(){
   let userConversionInput = parseFloat(document.getElementById("currency-amount").value);
   let conversionSelectValue = conversionSelect.value;
@@ -365,24 +369,33 @@ convertCurrencyBtn.addEventListener("click", function(){
     return;
 }
 
-
-let coinsToUSD = 0.013;
-let USDToCoins = 78;
 let result; 
+let resultText = "";
 
   if(conversionSelectValue == "USD-to-coins"){
     result = userConversionInput*USDToCoins;
-    conversionResult.innerHTML = `${userConversionInput} USD ≈ ${result.toFixed(2)} TikTok Coins`;
-    console.log("op 1");
-
-   
+    let tiktokTakes = result*tiktokCut;
+    let creatorGets = result - tiktokTakes; 
+    //conversionResult.innerHTML = `${userConversionInput} USD ≈ ${result.toFixed(2)} TikTok Coins`;
+    
+    resultText = `
+                <p><strong>${userConversionInput.toFixed(2)} USD</strong> ≈ <strong>${result.toFixed(3)} Coins</strong></p>
+                <p>💰 TikTok Takes: <strong>${tiktokTakes.toFixed(3)} Coins</strong></p>
+                <p>🎉 Creator Gets: <strong>${creatorGets.toFixed(3)} Coins</strong></p>
+            `;
     
   } else {
     result = userConversionInput*coinsToUSD;
-    conversionResult.innerHTML = `${userConversionInput} TikTok Coins ≈ ${result.toFixed(2)} USD`;
-    console.log("op 2");
+    let tiktokTakes = result*tiktokCut;
+    let creatorGets = result - tiktokTakes; 
+    resultText = `
+    <p><strong>${userConversionInput.toFixed(3)} Coins</strong> ≈ <strong>${result.toFixed(3)} USD</strong></p>
+    <p>💰 TikTok Takes: <strong>${tiktokTakes.toFixed(3)} USD</strong></p>
+    <p>🎉 Creator Gets: <strong>${creatorGets.toFixed(3)} USD</strong></p>
+`;
   
   }
+  conversionResult.innerHTML = resultText;
 })
 
 //open +close glossary
