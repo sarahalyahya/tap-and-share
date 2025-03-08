@@ -145,6 +145,7 @@ function makeInvisible(){
     if (!popupsActive){
         popupsActive = true; 
         startVidPopup(); 
+        startAdPopup();
     }
 
 }; 
@@ -274,10 +275,13 @@ function generateVidPopup(){
 
 //every 10 seconds rn
 function startVidPopup(){
-    setInterval(generateVidPopup, 5000000); 
-    setInterval(generateAdPopup, 30000);
+    setInterval(generateVidPopup, (Math.random()*50000)); 
 }
 
+function startAdPopup(){
+    setInterval(generateAdPopup, (Math.random()*50000));
+    console.log("yeah I'm here");
+}
 
 //randomize
 function PopupPosition(popup){
