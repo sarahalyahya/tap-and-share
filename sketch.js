@@ -32,6 +32,11 @@ const glossaryContainer = document.getElementById("glossary-container");
 const openGlossaryBtn = document.getElementById("open-glossary-btn");
 const closeGlossaryBtn = document.getElementById("close-glossary-btn");
 
+const browserContainer = document.getElementById("browser-container");
+// const browserContainer2 = document.getElementById("b-container");
+const openBrowserBtn = document.getElementById("open-browser-btn");
+const closeBrowserBtn = document.getElementById("close-browser-btn");
+
 
 //random for later, will cause errors when it nears zero i think, so lets have it fixed for now
 // let coinBalance = Math.floor(Math.random()*51); 
@@ -42,7 +47,7 @@ balanceDisplay = document.getElementById("balance");
 balanceDisplay.textContent = coinBalance; 
 
 //so theyre not active on login screen
-let popupsActive = false; 
+let popupsActive = true; 
 
 
 
@@ -402,11 +407,21 @@ let resultText = "";
   conversionResult.innerHTML = resultText;
 })
 
-//open +close glossary
+//open + close glossary
 openGlossaryBtn.addEventListener("click", function() {
     glossaryContainer.style.display = "block"; 
 })
 
 closeGlossaryBtn.addEventListener("click", function(){
     glossaryContainer.style.display = "none";
+})
+
+openBrowserBtn.addEventListener("click", function(){
+    browserContainer.style.display = "flex";
+    console.log("flexing");
+})
+
+closeBrowserBtn.addEventListener("click", function(){
+    browserContainer.style.display = "none";
+    console.log("hiding");
 })

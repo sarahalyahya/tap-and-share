@@ -46,7 +46,7 @@
 </body>
 </html> -->
 
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,4 +141,94 @@
     </script>
 
 </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Feed Simulation</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .phone-container {
+            width: 375px;
+            height: 667px;
+            border: 16px solid #333;
+            border-radius: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: black;
+        }
+        .feed-container {
+            flex: 1;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+        }
+        .post {
+            height: 667px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            scroll-snap-align: start;
+        }
+        .post:nth-child(odd) { background: #ff4757; }
+        .post:nth-child(even) { background: #1e90ff; }
+        .buttons {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .buttons button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="feed-container" id="feed">
+            <div class="post">Post 1</div>
+            <div class="post">Post 2</div>
+            <div class="post">Post 3</div>
+            <div class="post">Post 4</div>
+            <div class="post">Post 5</div>
+        </div>
+        <div class="buttons">
+            <button onclick="scrollUp()">▲</button>
+            <button onclick="scrollDown()">▼</button>
+        </div>
+    </div>
+
+    <script>
+        function scrollUp() {
+            const feed = document.getElementById('feed');
+            feed.scrollBy({ top: -667, behavior: 'smooth' });
+        }
+        function scrollDown() {
+            const feed = document.getElementById('feed');
+            feed.scrollBy({ top: 667, behavior: 'smooth' });
+        }
+    </script>
+</body>
 </html>
+
