@@ -16,7 +16,7 @@ body {
     margin: 0;
     padding: 0;
     background: rgb(2,0,36);
-    background: linear-gradient(145deg, #B5E0F3, #39c3f1);
+    background: linear-gradient(145deg, #B5E0F3, #a0d0e0);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -505,13 +505,12 @@ input {
 
 .browser {
   width: 75vw;
-  height: 70vh;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  height: 80vh;
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0px 10px #ccc;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), inset 5px 5px 10px rgba(255, 255, 255, 0.6);
 }
 .browser .browser-header {
   background-color: #cdebf9;
@@ -550,11 +549,51 @@ input {
 
 .browser .window-body {
   flex: 1;
-  overflow: hidden;
-  background: #cdebf9;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.feed-container{
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.post{
+  height: 33rem;
+  left: 0rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 24px;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.post:nth-child(odd) { background: black; }
+    .post:nth-child(even) { background: black; }
+    .scroll-btns {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+        }
+
+.scroll-btns {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
 }
 .browser .window-body iframe {
   width: 100%;
   height: 100%;
+  border: none;
 }
 

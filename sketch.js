@@ -425,3 +425,44 @@ closeBrowserBtn.addEventListener("click", function(){
     browserContainer.style.display = "none";
     console.log("hiding");
 })
+
+const iframes = document.querySelectorAll('iframe');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                const iframe = entry.target;
+                if (entry.isIntersecting) {
+                    // Play the video when in view
+                    const src = iframe.getAttribute('data-src');
+                    iframe.src = src;  // Set the src to the actual URL to start playing
+                } else {
+                    // Pause the video when out of view
+                    const iframeWindow = iframe.contentWindow;
+                    iframeWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                }
+            });
+        }, { threshold: 0.5 }); // 50% of the iframe must be in view
+
+        // Observe all iframe elements
+        iframes.forEach(iframe => {
+            observer.observe(iframe);
+        });
+
+    const scrollUpBtn = document.getElementById("feed-scroll-up");
+    const scrollDownBtn = document.getElementById("feed-scroll-down");
+    const feed = document.getElementById('feed');
+    const postHeight = document.querySelector('.post').offsetHeight;
+        function scrollUp() {
+            
+            feed.scrollBy({ top: -592, behavior: 'smooth' });
+            console.log("we here?")
+        }
+
+        function scrollDown() {
+            console.log("we here");
+            feed.scrollBy({ top: 592, behavior: 'smooth' });
+            
+        }
+
+    scrollDownBtn.addEventListener("click", scrollDown);
+    scrollUpBtn.addEventListener('click', scrollUp);
