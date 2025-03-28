@@ -74,19 +74,6 @@
   
 
   
-  <!-- Chat Pop-up -->
-  <div class="chat-box-container" id="chatContainer">
-    <div class="chat-header">
-        <span>LIVE Chat</span>
-        <button class="close-btn" id="close-chat-btn">X</button>
-    </div>
-    <div class="chat-box" id="chatBox"></div>
-    <div class="input-container">
-        <input type="text" id="userInput" placeholder="Send a message...">
-        <button id="sendBtn">Send</button>
-    </div>
-</div>
-
 <div id="coin-container"> <span>Balance:</span> <span id="balance">0</span></div>
 
 
@@ -133,50 +120,72 @@
    
   </div>
 
-      <!-- Browser -->
-   
 </div>
+
+
+  
 <div class="container" id="browser-container">
   <div class="browser">
     <header class="browser-header">
       <div class="action-btns">
         <span id="close-browser-btn">X</span>
-        
       </div>
       <div class="address-bar">
-        <input type="text" value="https://tiktokLIVE.com" readonly/>
+        <input type="text" value="https://tiktokLIVE.com" readonly />
       </div>
-      
     </header>
-    <section class="window-body">
 
-       <div class="feed-container" id="feed">
-            <div class="post">
-                <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0" loading="lazy"></iframe>
-            </div>
-            <div class="post">
-                <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0" loading="lazy"></iframe>
-            </div>
-            <div class="post">
-                <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0" loading="lazy"></iframe>
-            </div>
-            <div class="post">
-                <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0" loading="lazy"></iframe>
-            </div>
-            <div class="post">
-                <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0" loading="lazy"></iframe>
-            </div>
-            <div class="scroll-btns">
-              <span id="feed-scroll-up">▲</span>
-              <span id="feed-scroll-down">▼</span>
-          </div>
+    <section class="window-body">
+      <!-- NEW STRUCTURE -->
+      <div class="content-wrapper">
+        <!-- Left Column -->
+        <div class="left-column">
+          <div class="box box-3">3</div>
+          <div class="box box-4">4</div>
         </div>
-        
+
+        <!-- Feed Container -->
+        <div class="feed-container" id="feed">
+          <div class="scroll-btns">
+            <span id="feed-scroll-up">▲</span>
+            <span id="feed-scroll-down">▼</span>
+          </div>
+          <div class="post">
+            
+            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"
+              loading="lazy" allow="autoplay"></iframe>
+          </div>
+          <div class="post">
+            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"
+              loading="lazy" allow="autoplay"></iframe>
+          </div>
+          <div class="post">
+            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"
+              loading="lazy" allow="autoplay"></iframe>
+          </div>
+
+         
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+          <div class="box box-1">1</div>
+          <div class="box box-2 chat-box-container" id="chatContainer">
+            <div class="chat-header">
+                <span>LIVE Chat</span>
+            </div>
+            <div class="chat-box" id="chatBox"></div>
+            <div class="input-container">
+                <input type="text" id="userInput" placeholder="Send a message...">
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+        </div>
+        </div>
+      </div>
     </section>
   </div>
 </div>
-
-   
 
     
     

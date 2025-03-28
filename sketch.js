@@ -12,10 +12,10 @@ const sideBar = document.getElementById("sidebar");
 const sidebarWidth = parseFloat(getComputedStyle(sidebar).width);
 const sideBarHeight = parseFloat(getComputedStyle(sidebar).height);
 
-const openChatBtn = document.getElementById("open-chat-btn");
+//const openChatBtn = document.getElementById("open-chat-btn");
 const chatBox = document.getElementById("chatBox");
 const chatContainer = document.getElementById("chatContainer");
-const closeChatBtn = document.getElementById("close-chat-btn");
+// const closeChatBtn = document.getElementById("close-chat-btn");
 const sendBtn = document.getElementById("sendBtn");
 
 
@@ -166,8 +166,8 @@ function makeInvisible(){
 
 
 //chat pop up
-openChatBtn.addEventListener("click", openChat);
-closeChatBtn.addEventListener("click", closeChat);
+//openChatBtn.addEventListener("click", openChat);
+// closeChatBtn.addEventListener("click", closeChat);
 sendBtn.addEventListener("click", sendMessage);
 
 function openChat(){
@@ -418,6 +418,7 @@ closeGlossaryBtn.addEventListener("click", function(){
 
 openBrowserBtn.addEventListener("click", function(){
     browserContainer.style.display = "flex";
+    openChat();
     console.log("flexing");
 })
 
@@ -461,6 +462,7 @@ const iframes = document.querySelectorAll('iframe');
         function scrollDown() {
             console.log("we here");
             feed.scrollBy({ top: 592, behavior: 'smooth' });
+    
             
         }
 

@@ -149,12 +149,13 @@ body {
   width: 10rem;
   height: 100vh;
   background-color: #f3f3f3;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), inset 5px 5px 10px rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
   padding: 1rem;
   position: fixed;
   left: 0;
   top: 0;
   overflow-y: auto;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -193,7 +194,7 @@ body {
 }
 
 /* chat pop up */
-.chat-box-container {
+/* .chat-box-container {
   position: fixed;
   bottom: 20rem;
   right: 1rem;
@@ -260,7 +261,7 @@ input {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
-}
+} */
 
 
 /* currency */
@@ -494,12 +495,14 @@ input {
   opacity: 0.6;
 }
 
-.container {
+/* .container {
   position: absolute;
-  left:15rem;
-  top: 5rem;
+  left: 57%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: none;
   justify-content: center;
+  align-items: center;
   
 }
 
@@ -595,5 +598,275 @@ input {
   width: 100%;
   height: 100%;
   border: none;
+} */
+
+
+.container {
+  position: absolute;
+  left: 15rem;
+  top: 5rem;
+  display: none;
+  justify-content: center;
 }
 
+.browser {
+  width: 75vw;
+  height: 80vh;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), inset 5px 5px 10px rgba(255, 255, 255, 0.6);
+}
+
+.browser .browser-header {
+  background-color: #cdebf9;
+  border-style: solid; 
+  border-style: outset;
+  border-color: #89d0f1;
+  height: 10rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.browser .address-bar {
+  background-color: white;
+  width: 10%;
+  padding: 4px 10px;
+  border-radius: 4px;
+  flex: 0.8;
+}
+
+.browser .address-bar input {
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin-right: 1rem;
+  outline: none;
+  font-size: 12px;
+}
+
+.browser .browser-header .action-btns {
+  background-color: cdebf9;
+  color: darkblue;
+  font-weight: 700;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* FLEXBOX LAYOUT */
+.window-body {
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Side Columns */
+.left-column, .right-column {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 2;
+  padding: 1rem;
+}
+
+/* Position left & right columns */
+.left-column {
+  left: 0;
+  width: 11rem;
+}
+
+.right-column {
+  right: 0;
+  width: 18rem;
+}
+
+/* FEED AREA */
+.feed-container {
+  flex: 1;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  position: relative;
+  z-index: 1;
+}
+
+/* POST STYLES */
+.post {
+  height: 33rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  position: relative;
+  background: black;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Restore the iframe size */
+.post iframe {
+  width: 70%; 
+  height: 84%; 
+  border: none;
+}
+
+/* Side boxes */
+.box {
+  width: 100%; /* Takes full width of column */
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 8px;
+  z-index: 3;
+}
+
+
+/* Box 2: Full height for chat
+.box-2 {
+  height: 100%;
+} */
+
+/* Chat Box Container Styling */
+.chat-box-container {
+  position: relative;  /* Position relative to its container (Box 2) */
+  width: 87%;  /* Make sure it takes up the full width of Box 2 */
+  height: 100%;  /* Take up the full height of Box 2 */
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.3rem;
+  color: white;
+  /* box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3); */
+}
+
+/* Chat Header */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Close Button */
+
+
+/* Chat Box (Messages Area) */
+.chat-box {
+  flex: 1;  /* Make it take up all available space */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 5px;
+  margin-bottom: 10px;  /* Ensure there's space at the bottom for input */
+  font-weight: 400;
+}
+
+/* Chat Message Styling */
+.message {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  max-width: 80%;
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+} 
+
+/* Input Container (For sending messages) */
+.input-container {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+#sendBtn {
+  padding: 8px 12px;
+  margin-left: 5px;
+  border-radius: 20px;
+  border: none;
+  background: #ff0050;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* Box 2 Specific Styles */
+.box-2 {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;  /* Ensure it's above other elements if necessary */
+}
+
+/* Boxes 3 & 4: Take up full left column */
+.box-3, .box-4 {
+  height: 50%; /* Each takes half of the left column */
+}
+
+/* .scroll-btns {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 100;
+} */
+
+.scroll-btns {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  display: flex
+;
+  position: fixed;
+  top: 50%;
+  left: 65%;
+  transform: translateX(100%);
+  flex-direction: column;
+}
+
+#feed {
+  position: relative;
+}
+
+.scroll-up {
+  left: -30px; /* Move the scroll-up button to the left of the iframe */
+}
+
+.scroll-down {
+  left: -30px; /* Move the scroll-down button to the left of the iframe */
+  bottom: 0;   /* Position it at the bottom of the iframe */
+}
