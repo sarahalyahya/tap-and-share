@@ -20,10 +20,14 @@
     <div id="canvas-container"></div>
     
       <div id="login">
-        <h1 id="login-header">Welcome to t@p & share</h1>
+        <h1 id="login-header">WELCOME TO <br> TAP AND SHARE</h1>
         <form id="login-form">
           <input type="password" placeholder="Enter Code"  class="login-form-field" name="psw" required>
-          <input type="button" id="login-btn" value="Login">
+          <button id= "login-btn" class="pushable">
+            <span class="front">
+              login
+            </span>
+          </button>
         </form>
         
 
@@ -76,8 +80,6 @@
 
   
 
-  
-<div id="coin-container"> <span>Balance:</span> <span id="balance">0</span></div>
 
 
     
@@ -131,7 +133,7 @@
   <div class="browser">
     <header class="browser-header">
       <div class="action-btns">
-        <span id="close-browser-btn">X</span>
+        <!-- <span id="close-browser-btn">X</span> -->
       </div>
       <div class="address-bar">
         <input type="text" value="https://tiktokLIVE.com" readonly />
@@ -143,8 +145,33 @@
       <div class="content-wrapper">
         <!-- Left Column -->
         <div class="left-column">
-          <div class="box box-3">3</div>
-          <div class="box box-4">4</div>
+          <div class="box box-3">
+          <div class="gift-container">
+            <div class="gift" data-value="1">
+              <img class="gift-img" src="gifts/rose.webp">
+              <span class="gift-name">Rose</span>
+              <div class="gift-value"><img src="assets/tiktokCoinIcon.png" class="coin-icon"> 1</div>
+            </div>
+            <div class="gift" data-value="99">
+              <img class="gift-img" src="gifts/cakeSlice.webp">
+              <span class="gift-name">Birthday Cake</span>
+              <div class="gift-value"><img src="assets/tiktokCoinIcon.png" class="coin-icon"> 99</div>
+            </div>
+            <div class="gift" data-value="99">
+              <img  class="gift-img" src="gifts/boxingGloves.webp">
+              <span class="gift-name">Gloves</span>
+              <div class="gift-value"><img src="assets/tiktokCoinIcon.png" class="coin-icon"> 99</div>
+            </div>
+            <div class="gift" data-value="999">
+              <img class="gift-img" src="gifts/yacht.webp">
+              <span class="gift-name">Yacht</span>
+              <div class="gift-value"><img src="assets/tiktokCoinIcon.png" class="coin-icon"> 999</div>
+            </div>
+          </div>
+
+          </div>
+
+          <div class="box box-4"><div id="coin-container"> <span>Balance:  </span> <span><img src="assets/tiktokCoinIcon.png" class="coin-icon"> </span><span id="balance">0</span></div></div>
         </div>
 
         <!-- Feed Container -->
@@ -155,15 +182,19 @@
           </div>
           <div class="post">
             
-            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"
+            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=1&loop=1&background=0&controls=0"
               loading="lazy" allow="autoplay"></iframe>
           </div>
           <div class="post">
-            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"
+            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=1&loop=1&background=0&controls=0"
               loading="lazy" allow="autoplay"></iframe>
           </div>
           <div class="post">
-            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"
+            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=1&loop=1&background=0&controls=0"
+              loading="lazy" allow="autoplay"></iframe>
+          </div>
+          <div class="post">
+            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=1&loop=1&background=0&controls=0"
               loading="lazy" allow="autoplay"></iframe>
           </div>
 

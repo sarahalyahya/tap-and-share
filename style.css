@@ -113,7 +113,8 @@ body {
 
 #login-header{
   font-size: 5rem;
-  color: black;	
+  color: black;
+  text-align: center;	
   text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
   animation: shadow-dance 2s infinite;
   z-index: 1
@@ -140,28 +141,57 @@ body {
   z-index: 1
 }
   
-#login-btn {
-  padding: 0.2rem 1rem 0.2rem 1rem;
+.pushable {
+  /* padding: 0.2rem 1rem 0.2rem 1rem;
   border: 1px solid RGB(1, 63, 102);
   border-radius: 3px;
   display: inline;
   margin-right: 1rem;
   background: linear-gradient(to bottom, #f6f6f6 0%, #ffffff 6%, #fffdfe 12%, #fbf9fa 18%, #f8f7f5 41%, #f7f3f0 47%, #f8f3ef 82%, #e7e0d8 94%, #dad3c9 100%);
-  z-index: 1
+  z-index: 1 */
+
+  padding: 0;
+  margin-left: 5px;
+  border-radius: 12px;
+  border: none;
+  background: #8f022e;
+  color: white;
+  cursor: pointer;
+  outline-offset: 4px;
+  /* font-size: 15; */
 }
 
-#login-btn:hover,
+.front{
+  display: block;
+  padding: 12px 42px;
+  border-radius: 12px;
+  /* font-size: 1.25rem; */
+  background: #ff0050;
+  color: white;
+  transform: translateY(-6px);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}
+
+#login-btn{
+  font-size:20;
+}
+
+
+/* #login-btn:hover,
 #login-btn:focus {
   outline: 0;
   border: 2px solid #B9D0F0;
-}
+} */
 
 @keyframes shadow-dance {
   0%, 100% {
-      text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+      text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #FFC8DD;
   }
   50% {
-      text-shadow: -5px -5px 0 #00d4ff, -10px -10px 0 #ff005e;
+      text-shadow: -5px -5px 0 #FFC8DD, -10px -10px 0 #ff005e;
   }
 }
 
@@ -355,18 +385,7 @@ body {
 
 /* coin balance */
 
-#coin-container{
-  position: absolute;
-  bottom: 5rem;
-  right: 3rem;
-  color: white;
-  background: black;
-  border-radius: 0.3rem;
-  padding: 0.3rem 0.6rem;
-  visibility: hidden;
 
-
-}
 
 /* glossary */
 #glossary-container {
@@ -489,13 +508,13 @@ body {
   font-size: 12px;
 }
 
-.browser .browser-header .action-btns {
+/* .browser .browser-header .action-btns {
   background-color: cdebf9;
   color: darkblue;
   font-weight: 700;
   padding-left: 1rem;
   padding-right: 1rem;
-}
+} */
 
 /* FLEXBOX LAYOUT */
 .window-body {
@@ -566,7 +585,7 @@ body {
 /* Side boxes */
 .box {
   width: 100%; /* Takes full width of column */
-  background: rgba(255, 255, 255, 0.8);
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -674,8 +693,11 @@ input {
   height: 50%; /* Each takes half of the left column */
 }
 
+
+
 .box-3{
   width: 18rem;
+  display: flex;
 }
 
 /* .scroll-btns {
@@ -708,11 +730,94 @@ input {
   position: relative;
 }
 
+
+.gift-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-around;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  /* border:#ff0050; 
+  border-style:solid; */
+  border-radius: 10px;
+}
+.gift {
+  display: flex;
+  flex: 1 0 50%;
+  flex-direction: column;
+  align-items: center;
+  padding-top:0.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gift-name{
+  font-size: 13;
+  color: white;
+}
+.gift:hover {
+  transform: scale(1.1);
+}
+.gift:active {
+  transform: scale(1.3);
+}
+.gift-img {
+  width: 4em;
+  height: 4rem;
+}
+.gift-value {
+  color: gold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.coin-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+#coin-container{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  /* position: absolute;
+  bottom: 5rem;
+  right: 3rem; */
+  color: white;
+  background: black;
+  border-radius: 0.3rem;
+  /* padding: 0.3rem 0.6rem; */
+
+}
+
+#coin-container .coin-icon{
+  width: 1rem;
+  height: 1rem;
+}
+
+#balance{
+  color: GOLD 		;
+}
+
 .scroll-up {
-  left: -30px; /* Move the scroll-up button to the left of the iframe */
+  left: -1.875rem; /* Move the scroll-up button to the left of the iframe */
 }
 
 .scroll-down {
-  left: -30px; /* Move the scroll-down button to the left of the iframe */
+  left: -1.875rem; /* Move the scroll-down button to the left of the iframe */
   bottom: 0;   /* Position it at the bottom of the iframe */
 }
+
+
+
+/* 
+#00F2EA CYAN
+#FF0050	TIKTOK PINK
+#FFC8DD	BABY PINK
+#B5E0F3	BABY BLUE
+#FFF1E6 CREAM
+*/

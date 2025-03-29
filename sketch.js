@@ -20,6 +20,8 @@ const sendBtn = document.getElementById("sendBtn");
 
 
 const currencyContainer = document.getElementById("currency-container");
+const coinContainer = document.getElementById("coin-container");
+let balanceDisplay = document.getElementById("balance");
 const openCurrencyBtn= document.getElementById("open-currency-btn");
 const closeCurrencyBtn = document.getElementById("close-currency-btn");
 const conversionSelect = document.getElementById("currency-select"); 
@@ -35,16 +37,29 @@ const closeGlossaryBtn = document.getElementById("close-glossary-btn");
 const browserContainer = document.getElementById("browser-container");
 // const browserContainer2 = document.getElementById("b-container");
 const openBrowserBtn = document.getElementById("open-browser-btn");
-const closeBrowserBtn = document.getElementById("close-browser-btn");
+//const closeBrowserBtn = document.getElementById("close-browser-btn");
 
 
 //random for later, will cause errors when it nears zero i think, so lets have it fixed for now
 // let coinBalance = Math.floor(Math.random()*51); 
 
-const coinContainer = document.getElementById("coin-container");
-let coinBalance = 50;
-balanceDisplay = document.getElementById("balance"); 
-balanceDisplay.textContent = coinBalance; 
+// let coinBalance = 50;
+// balanceDisplay = document.getElementById("balance"); 
+// console.log(balanceDisplay);
+// balanceDisplay.textContent = coinBalance; 
+
+
+function createBalance(){
+    console.log(balanceDisplay);
+    let coinBalance = Math.floor(Math.random()*10000);
+    console.log("coin balance: " + coinBalance); 
+    balanceDisplay.textContent = coinBalance; 
+    
+}
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     createBalance();
+// });
 
 //so theyre not active on login screen
 let popupsActive = true; 
@@ -137,11 +152,12 @@ let popupsActive = true;
 
 loginButton.addEventListener("click", makeInvisible); 
 
-function makeInvisible(){
+function makeInvisible(e){
     console.log(sideBar.offsetWidth); 
+   e.preventDefault(); 
     loginForm.style.visibility = "hidden";
     sideBar.style.visibility = "visible";
-    coinContainer.style.visibility = "visible";
+    //coinContainer.style.visibility = "visible";
 
     // allFolders.forEach(folder =>{
     //     folder.style.visibility ="visible";
@@ -419,13 +435,13 @@ closeGlossaryBtn.addEventListener("click", function(){
 openBrowserBtn.addEventListener("click", function(){
     browserContainer.style.display = "flex";
     openChat();
-    console.log("flexing");
+    
 })
 
-closeBrowserBtn.addEventListener("click", function(){
-    browserContainer.style.display = "none";
-    console.log("hiding");
-})
+// closeBrowserBtn.addEventListener("click", function(){
+//     browserContainer.style.display = "none";
+//     console.log("hiding");
+// })
 
 const iframes = document.querySelectorAll('iframe');
 
@@ -462,9 +478,37 @@ const iframes = document.querySelectorAll('iframe');
         function scrollDown() {
             console.log("we here");
             feed.scrollBy({ top: 592, behavior: 'smooth' });
-    
-            
+
         }
 
     scrollDownBtn.addEventListener("click", scrollDown);
     scrollUpBtn.addEventListener('click', scrollUp);
+
+    document.querySelectorAll(".gift").forEach(gift => {
+        gift.addEventListener("click", () => {
+          gift.style.transform = "scale(2)";
+          setTimeout(() => gift.style.transform = "scale(1)", 300);
+        });
+      });
+
+let coinBalance = Math.floor(Math.random() * 2000); // Initial random balance
+balanceDisplay.textContent = coinBalance; // Display initial balance
+
+function updateBalance(giftValue) {
+    if (coinBalance >= giftValue) {
+        coinBalance -= giftValue; // Deduct gift value from balance
+        console.log("deducting!")
+        balanceDisplay.textContent = coinBalance; // Update balance display
+    } else {
+        alert("Insufficient funds!"); // Show warning if balance is too low
+    }
+}
+
+// Attach click event to each gift
+document.querySelectorAll(".gift").forEach(item => {
+    item.addEventListener("click", function() {
+        let giftValue = parseInt(this.getAttribute("data-value")); // Get gift value
+        console.log("clicking");
+        updateBalance(giftValue);
+    });
+});
