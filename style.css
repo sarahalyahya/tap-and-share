@@ -7,6 +7,8 @@ body {
   
   }
 
+  
+
   #canvas-container {
     position: fixed;
     top: 0;
@@ -812,6 +814,7 @@ input {
   bottom: 0;   /* Position it at the bottom of the iframe */
 }
 
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur267.cur), auto !important;} /* End https://www.cursors-4u.com */
 
 
 /* 
