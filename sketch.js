@@ -500,7 +500,7 @@ function updateBalance(giftValue) {
         console.log("deducting!")
         balanceDisplay.textContent = coinBalance; // Update balance display
     } else {
-        alert("Insufficient funds!"); // Show warning if balance is too low
+        alert("Insufficient funds!"); // Show warning if balance is too low, STYLE THIS WARNING! 
     }
 }
 
@@ -511,4 +511,15 @@ document.querySelectorAll(".gift").forEach(item => {
         console.log("clicking");
         updateBalance(giftValue);
     });
+});
+
+const likeButton = document.querySelector('.like-btn');
+
+likeButton.addEventListener('click', function() {
+  likeButton.classList.add('clicked');
+
+  // Remove the class after the animation is done to reset the effect
+  setTimeout(function() {
+    likeButton.classList.remove('clicked');
+  }, 1000); // Timing should match the explosion animation duration
 });
