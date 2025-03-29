@@ -514,7 +514,7 @@ document.querySelectorAll(".gift").forEach(item => {
         const animatedGiftImage = document.createElement('img');
         animatedGiftImage.src = this.querySelector('.gift-img').src; // Get the gift image source
         animatedGiftImage.classList.add('animated-gift');
-        updateBalance(giftValue);
+        // updateBalance(giftValue);
         if (updateBalance(giftValue)) {
         document.body.appendChild(animatedGiftImage);
         animatedGiftImage.addEventListener('animationend', () => {
