@@ -499,8 +499,11 @@ function updateBalance(giftValue) {
         coinBalance -= giftValue; // Deduct gift value from balance
         console.log("deducting!")
         balanceDisplay.textContent = coinBalance; // Update balance display
+        return true;
     } else {
-        alert("Insufficient funds!"); // Show warning if balance is too low, STYLE THIS WARNING! 
+        alert("Insufficient funds!");
+        return false;
+     // Show warning if balance is too low, STYLE THIS WARNING! 
     }
 }
 
@@ -508,10 +511,68 @@ function updateBalance(giftValue) {
 document.querySelectorAll(".gift").forEach(item => {
     item.addEventListener("click", function() {
         let giftValue = parseInt(this.getAttribute("data-value")); // Get gift value
-        console.log("clicking");
+        const animatedGiftImage = document.createElement('img');
+        animatedGiftImage.src = this.querySelector('.gift-img').src; // Get the gift image source
+        animatedGiftImage.classList.add('animated-gift');
         updateBalance(giftValue);
+        if (updateBalance(giftValue)) {
+        document.body.appendChild(animatedGiftImage);
+        animatedGiftImage.addEventListener('animationend', () => {
+        animatedGiftImage.remove();
+        console.log("clicking");
+        
     });
+}
 });
+});
+
+// // Balance update function
+// function updateBalance(giftValue) {
+//     if (coinBalance >= giftValue) {
+//         // Deduct gift value from balance
+//         coinBalance -= giftValue;
+//         balanceDisplay.textContent = coinBalance; // Update balance display
+//         return true; // Indicate that the balance was updated and animation should proceed
+//     } else {
+//         alert("Insufficient funds!");
+//         showWarning(); // Show warning message if balance is too low
+//         return false; // Indicate that there are insufficient funds
+//     }
+// }
+
+// // Function to show warning for insufficient funds
+// function showWarning() {
+//     const warningMessage = document.createElement('div');
+//     warningMessage.textContent = "Insufficient funds! Please add more coins.";
+//     warningMessage.classList.add('warning-message');
+    
+//     // Append to body and remove after 3 seconds
+//     document.body.appendChild(warningMessage);
+//     setTimeout(() => warningMessage.remove(), 3000);
+// }
+
+// // Attach click event to each gift
+// document.querySelectorAll(".gift").forEach(item => {
+//     item.addEventListener("click", function() {
+//         let giftValue = parseInt(this.getAttribute("data-value")); // Get gift value
+        
+//         // Check if the balance is sufficient before showing the animation
+//         if (updateBalance(giftValue)) {
+//             const animatedGiftImage = document.createElement('img');
+//             animatedGiftImage.src = this.querySelector('.gift-img').src; // Get the gift image source
+//             animatedGiftImage.classList.add('animated-gift');
+
+//             // Append the image to the body (above the iframe)
+//             document.body.appendChild(animatedGiftImage);
+
+//             // Handle animation end and remove image after the animation
+//             animatedGiftImage.addEventListener('animationend', () => {
+//                 animatedGiftImage.remove();
+//             });
+//         }
+//     });
+// });
+
 
 const likeButton = document.querySelector('.like-btn');
 
