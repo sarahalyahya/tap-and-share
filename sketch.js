@@ -3,6 +3,8 @@
 //here we are selecting all the elements with the selector FILE 
 const allFolders = document.querySelectorAll(".file");
 
+const p5Canvas = document.getElementById("canvas-container");
+
 const loginForm = document.getElementById("login");
 const loginButton = document.getElementById("login-btn");
 
@@ -99,56 +101,52 @@ let popupsActive = true;
 
 
 
-// function makeDraggable(folder){
+function makeDraggable(folder){
 
-//     let isDragging = false;
-//     let hasMoved = false;
-//     let prevX, prevY;
+    let isDragging = false;
+    let hasMoved = false;
+    let prevX, prevY;
 
-//         //upon clicking the mouse, we know it's dragging, cursor changes, and the x,y coords are updated with the coords of the grab moment
-//     folder.addEventListener("mousedown", (event) =>{
-//         isDragging = true;
-//         hasMoved = false;
-//         folder.style.cursor = "grabbing";
-//         prevX = event.clientX;
-//         prevY = event.clientY;
+        //upon clicking the mouse, we know it's dragging, cursor changes, and the x,y coords are updated with the coords of the grab moment
+    folder.addEventListener("mousedown", (event) =>{
+        isDragging = true;
+        hasMoved = false;
+        folder.style.cursor = "grabbing";
+        prevX = event.clientX;
+        prevY = event.clientY;
 
-//         //keep getting left and top values and tracking movement 
-//         function onMouseMove(event){
-//             if (!isDragging) return;
+        //keep getting left and top values and tracking movement 
+        function onMouseMove(event){
+            if (!isDragging) return;
 
-//             hasMoved = true;
-//             const movementX = event.clientX - prevX;
-//             const movementY = event.clientY - prevY;
+            hasMoved = true;
+            const movementX = event.clientX - prevX;
+            const movementY = event.clientY - prevY;
 
-//             let leftValue = parseInt(window.getComputedStyle(folder).left);
-//             let topValue = parseInt (window.getComputedStyle(folder).top);
+            let leftValue = parseInt(window.getComputedStyle(folder).left);
+            let topValue = parseInt (window.getComputedStyle(folder).top);
 
-//             folder.style.left = `${leftValue + movementX}px`;
-//             folder.style.top = `${topValue + movementY}px`;
+            folder.style.left = `${leftValue + movementX}px`;
+            folder.style.top = `${topValue + movementY}px`;
 
-//             prevX = event.clientX;
-//             prevY = event.clientY;
-//         }
-//         function onMouseUp(){
+            prevX = event.clientX;
+            prevY = event.clientY;
+        }
+        function onMouseUp(){
         
-//             isDragging = false; 
-//             folder.style.cursor = "grab";
-//             document.removeEventListener("mousemove", onMouseMove);
-//             document.removeEventListener("mouseup", onMouseUp);
+            isDragging = false; 
+            folder.style.cursor = "grab";
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
 
-//         }
-//         //once we grab, these event listeners are activated
-//         document.addEventListener("mousemove", onMouseMove);
-//         document.addEventListener("mouseup", onMouseUp);
-//     });
-//     folder.addEventListener("dblclick", () => {
-//     if(!isDragging && !hasMoved){
-//         openFolder(folder);
-//     }
+        }
+        //once we grab, these event listeners are activated
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+    });
+  
     
-//     });
-// }
+}
 
 loginButton.addEventListener("click", makeInvisible); 
 
@@ -157,6 +155,8 @@ function makeInvisible(e){
    e.preventDefault(); 
     loginForm.style.visibility = "hidden";
     sideBar.style.visibility = "visible";
+    p5Canvas.style.visibility = "visible";
+    makeDraggable(sideBar);
     //coinContainer.style.visibility = "visible";
 
     // allFolders.forEach(folder =>{

@@ -17,6 +17,7 @@ body {
     height: 100%;
     z-index: 0;
     opacity: 60%;
+    visibility: hidden;
   }
   canvas {
     pointer-events: none;
@@ -216,8 +217,8 @@ body {
 #sidebar {
   visibility: hidden;
   width: 10rem;
-  height: 100vh;
-  background-color: #f3f3f3;
+  background-color: #efc6f75e;
+  color:#313030;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), inset 5px 5px 10px rgba(255, 255, 255, 0.6);
   border-radius: 20px;
   padding: 1rem;
@@ -246,12 +247,13 @@ body {
   cursor: pointer;
   transition: background 0.2s;
   font-size: 1rem;
+  font-weight: 600;
 }
 
 
 
 .sidebar-menu li:hover {
-  background: #ddd;
+  background: #B5E0F3;
 }
 
 
