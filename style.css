@@ -569,6 +569,7 @@ body {
   scroll-snap-type: y mandatory;
   position: relative;
   z-index: 1;
+  /* padding-right: 2rem; */
 }
 
 /* POST STYLES */
@@ -582,13 +583,15 @@ body {
   background: black;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  padding-left: 5rem;
 }
 
 /* Restore the iframe size */
 .post iframe {
-  width: 70%; 
-  height: 84%; 
+  width: 90%; 
+  height: 90%; 
   border: none;
+  pointer-events: none;
 }
 
 /* Side boxes */
@@ -602,6 +605,7 @@ body {
   border-radius: 8px;
   z-index: 3;
 }
+
 
 
 /* Box 2: Full height for chat
@@ -688,14 +692,14 @@ input {
 
 
 /* Box 2 Specific Styles */
-.box-2 {
+/* .box-2 {
   height: 70%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   position: relative;
-  z-index: 2;  /* Ensure it's above other elements if necessary */
-}
+  z-index: 2;  /* Ensure it's above other elements if necessary 
+} */
 
 /* Boxes 3 & 4: Take up full left column */
 .box-3, .box-4 {
@@ -728,15 +732,21 @@ input {
   font-size: 24px;
   color: white;
   cursor: pointer;
-  z-index: 10;
-  display: flex
-;
-  position: fixed;
-  top: 50%;
-  left: 65%;
-  transform: translateX(100%);
+  pointer-events: auto;
   flex-direction: column;
+  position: absolute;
+  right: 1.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  z-index: 999;
 }
+.feed-container::-webkit-scrollbar {
+  display: none;
+}
+
 
 #feed {
   position: relative;

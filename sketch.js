@@ -184,7 +184,7 @@ function makeInvisible(e){
 //chat pop up
 //openChatBtn.addEventListener("click", openChat);
 // closeChatBtn.addEventListener("click", closeChat);
-sendBtn.addEventListener("click", sendMessage);
+//sendBtn.addEventListener("click", sendMessage);
 
 function openChat(){
     chatContainer.style.display = "flex";
@@ -204,7 +204,7 @@ async function loadMessages() {
         //empty when clicking again
         chatBox.innerHTML = ""; 
         //fetching from json and making object array
-        const response = await fetch("messages.json");
+        const response = await fetch("HamzahVid.json");
         const messages = await response.json();
         let i = 0;
 
@@ -213,7 +213,7 @@ async function loadMessages() {
                 const { username, message } = messages[i];
                 addMessage(message, username);
                 i++;
-                setTimeout(displayNextMessage, 3000); // delay of 3 seconds before the next message
+                setTimeout(displayNextMessage, 4000); // delay of 3 seconds before the next message
             }
         }
 
@@ -249,7 +249,8 @@ function sendMessage() {
 
 //video array goes here (when there's multiple links)
 
-const URL = "https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"; 
+const URL = "https://vimeo.com/1074064925/d0a93261e7?ts=0&share=copy"; 
+
 
 function generateVidPopup(){
 
@@ -434,7 +435,7 @@ closeGlossaryBtn.addEventListener("click", function(){
 
 openBrowserBtn.addEventListener("click", function(){
     browserContainer.style.display = "flex";
-    openChat();
+    // openChat();
     
 })
 
@@ -469,6 +470,8 @@ const iframes = document.querySelectorAll('iframe');
     const scrollDownBtn = document.getElementById("feed-scroll-down");
     const feed = document.getElementById('feed');
     const postHeight = document.querySelector('.post').offsetHeight;
+    console.log(scrollUpBtn, scrollDownBtn); // should not be null
+
         function scrollUp() {
             
             feed.scrollBy({ top: -592, behavior: 'smooth' });
