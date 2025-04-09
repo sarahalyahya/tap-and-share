@@ -12,11 +12,11 @@ const sideBar = document.getElementById("sidebar");
 const sidebarWidth = parseFloat(getComputedStyle(sidebar).width);
 const sideBarHeight = parseFloat(getComputedStyle(sidebar).height);
 
-//const openChatBtn = document.getElementById("open-chat-btn");
-const chatBox = document.getElementById("chatBox");
-const chatContainer = document.getElementById("chatContainer");
-// const closeChatBtn = document.getElementById("close-chat-btn");
-const sendBtn = document.getElementById("sendBtn");
+const openChatBtn = document.getElementById("open-chat-btn");
+ const chatBox = document.getElementById("chatBox");
+ const chatContainer = document.getElementById("chatContainer");
+ const closeChatBtn = document.getElementById("close-chat-btn");
+ const sendBtn = document.getElementById("sendBtn");
 
 
 const currencyContainer = document.getElementById("currency-container");
@@ -181,10 +181,13 @@ function makeInvisible(e){
 
 
 
+
 //chat pop up
-//openChatBtn.addEventListener("click", openChat);
-// closeChatBtn.addEventListener("click", closeChat);
-//sendBtn.addEventListener("click", sendMessage);
+openChatBtn.addEventListener("click", openChat);
+closeChatBtn.addEventListener("click", closeChat);
+sendBtn.addEventListener("click", sendMessage);
+
+
 
 function openChat(){
     chatContainer.style.display = "flex";
@@ -198,13 +201,10 @@ function closeChat(){
 
 
 
-
 async function loadMessages() {
     try {
-        //empty when clicking again
         chatBox.innerHTML = ""; 
-        //fetching from json and making object array
-        const response = await fetch("HamzahVid.json");
+        const response = await fetch("messages.json");
         const messages = await response.json();
         let i = 0;
 
@@ -213,7 +213,7 @@ async function loadMessages() {
                 const { username, message } = messages[i];
                 addMessage(message, username);
                 i++;
-                setTimeout(displayNextMessage, 4000); // delay of 3 seconds before the next message
+                setTimeout(displayNextMessage, 2500); // Delay of 1 second before the next message
             }
         }
 
@@ -224,24 +224,19 @@ async function loadMessages() {
 }
 
 function addMessage(text, user, isUser = false) {
-    //append msgs to document
     const messageElement = document.createElement("div");
     messageElement.classList.add("message");
-    //if it is current user, send as "You" if not send using the username from json
     messageElement.textContent = isUser ? `You: ${text}` : `${user}: ${text}`;
-    //to display the new msg on the html file, otherwise it creates a div but never adds
+    
     chatBox.appendChild(messageElement);
-    //always scrolling down to the button so most recent text showing
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 function sendMessage() {
-    
     const input = document.getElementById("userInput");
     const text = input.value.trim();
     if (text) {
         addMessage(text, "You", true);
-        //remove what someone types
         input.value = "";
     }
 }
@@ -435,6 +430,7 @@ closeGlossaryBtn.addEventListener("click", function(){
 
 openBrowserBtn.addEventListener("click", function(){
     browserContainer.style.display = "flex";
+    setInterval(createFloatingAlert, 3000);
     // openChat();
     
 })
@@ -587,3 +583,35 @@ likeButton.addEventListener('click', function() {
     likeButton.classList.remove('clicked');
   }, 1000); // Timing should match the explosion animation duration
 });
+
+const alertMessages = [
+    "💰 USE your balance to gift the streamer!",
+    "🌹 Maybe a rose?",
+    " 🤑Careful...don't spend it all!",
+    "💬 Say 'Hello' in the chat",
+    "🤑 No money? No problem! You can always ❤️ it",
+    "⚡ Viral Moment Incoming!",
+    "🫣 There's only a few of us here", 
+    "🔍 Confused about a term? Check the glossary!",
+    "💸 How much is it all worth? Check the currency exchange!",
+    "⛵ Can you afford the yacht?",
+    "🎉 Support our creative streamer!"
+];
+
+function createFloatingAlert() {
+    let alert = document.createElement("div");
+    alert.className = "floating-alert";
+    alert.innerText = alertMessages[Math.floor(Math.random() * alertMessages.length)];
+    document.body.appendChild(alert);
+    alert.style.left = Math.random() * window.innerWidth + "px";
+    alert.style.top = Math.random() * window.innerHeight + "px";
+    setTimeout(() => alert.remove(), 3000);
+}
+
+
+
+
+
+
+
+// 
