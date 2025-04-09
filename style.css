@@ -90,7 +90,7 @@ body {
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(255, 0, 150, 0.5);
   z-index: 99999;
-  animation: floatUp 5s ease-out;
+  animation: floatUp 10s ease-out;
 }
 @keyframes floatUp {
   0% { opacity: 1; transform: translateY(0); }
@@ -635,9 +635,9 @@ body {
   padding: 1.3rem;
   color: white;
   position: fixed;
-  bottom: 20rem;
-  right: 1rem;
-  left: 15rem;
+  bottom: 5rem;
+  right: 38rem;
+  left: 68rem;
   width: 17rem;
   height: 22rem;
   background: rgba(0, 0, 0, 0.8);
@@ -646,6 +646,7 @@ body {
   padding: 1.3rem;
   color: white;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+  z-index: 99;
   /* box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3); */
 }
 
