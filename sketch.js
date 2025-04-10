@@ -157,6 +157,7 @@ function makeInvisible(e){
     sideBar.style.visibility = "visible";
     p5Canvas.style.visibility = "visible";
     makeDraggable(sideBar);
+    startTimer(600);
     //coinContainer.style.visibility = "visible";
 
     // allFolders.forEach(folder =>{
@@ -192,6 +193,7 @@ sendBtn.addEventListener("click", sendMessage);
 function openChat(){
     chatContainer.style.display = "flex";
     loadMessages();
+    makeDraggable(chatContainer);
 }
 
 function closeChat(){
@@ -375,6 +377,7 @@ function showAlert(message) {
 
 //Currency convert (double check the math)
 openCurrencyBtn.addEventListener("click", function(){
+    makeDraggable(currencyContainer);
     currencyContainer.style.display = "block";
 
 })
@@ -431,7 +434,8 @@ let resultText = "";
 
 //open + close glossary
 openGlossaryBtn.addEventListener("click", function() {
-    glossaryContainer.style.display = "block"; 
+    glossaryContainer.style.display = "block";
+    makeDraggable(glossaryContainer); 
 })
 
 closeGlossaryBtn.addEventListener("click", function(){
@@ -623,5 +627,58 @@ function createFloatingAlert() {
 
 
 
-
 // 
+
+// Function to create the timer overlay in the bottom-left corner
+function createTimerOverlay() {
+    const overlay = document.createElement("div");
+    overlay.id = "timer-overlay";  // Give it an ID for styling and control
+    document.body.appendChild(overlay);  // Append it to the body
+    return overlay;
+}
+
+// Function to start the countdown timer (in seconds)
+function startTimer(duration) {
+    const timerOverlay = createTimerOverlay();
+    let remainingTime = duration; // Duration in seconds (e.g., 600 seconds = 10 minutes)
+    
+    const timerInterval = setInterval(() => {
+        const minutes = Math.floor(remainingTime / 60); // Get the minutes
+        const seconds = remainingTime % 60; // Get the remaining seconds
+        timerOverlay.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+        
+        if (remainingTime <= 0) {
+            clearInterval(timerInterval); // Stop the timer when it reaches 0
+            redirectToLogin(); // Redirect to login screen when the timer ends
+        } else {
+            remainingTime--; // Decrease the remaining time by 1 second
+        }
+    }, 1000); // Update every second
+}
+
+// Function to redirect to the login screen after the timer ends
+function redirectToLogin() {
+    // Hide all elements
+    const browserContainer = document.getElementById("browser-container");
+    const chatContainer = document.getElementById("chatContainer");
+    const currencyContainer = document.getElementById("currency-container");
+    const glossaryContainer = document.getElementById("glossary-container");
+    const sideBar = document.getElementById("sidebar");
+    const loginForm = document.getElementById("login");
+
+    browserContainer.style.display = "none";
+    chatContainer.style.display = "none";
+    currencyContainer.style.display = "none";
+    glossaryContainer.style.display = "none";
+    sideBar.style.visibility = "hidden";  // Hide sidebar
+    loginForm.style.visibility = "visible";  // Show login form
+}
+
+// Start the timer when the browser is opened
+openBrowserBtn.addEventListener("click", function(){
+    // Show the browser container
+    browserContainer.style.display = "flex";
+
+    // Start the timer for 10 minutes (600 seconds)
+    // 600 seconds = 10 minutes
+});

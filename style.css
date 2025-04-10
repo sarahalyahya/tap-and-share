@@ -260,12 +260,12 @@ body {
 
 /* currency */
 #currency-container{
-  position: fixed;
+  position:absolute;
   bottom: 5rem;
   right: 38rem;
   left: 50rem;
   width: 17rem;
-  height: auto;
+  height: 30rem;;
   border-radius: 0.5rem;
   background-color: #B9D0F0;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
@@ -1017,6 +1017,20 @@ input {
   opacity: 1;
   transform: translateX(-50%) scale(1.05);
 }
+
+#timer-overlay {
+  position: fixed;
+  bottom: 10px; /* Position at the bottom */
+  left: 10px; /* Position to the left */
+  font-size: 24px; /* Adjust the size of the timer */
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 9999; /* Ensure it's on top of other elements */
+  font-family: 'Quicksand', sans-serif; /* Use a readable font */
+}
+
 
 
 /* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur265.cur), auto !important;} /* End https://www.cursors-4u.com */
