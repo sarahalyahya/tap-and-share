@@ -357,10 +357,20 @@ function updateCoins(amount){
    
 //stylizing an alert will def be better (so make one)
     if (coinBalance == 0){
-        alert("You're out of coins!");
+       showAlert("Not enough coins!");
     }
 }
 
+function showAlert(message) {
+    const alertBox = document.getElementById("custom-alert");
+    alertBox.textContent = message;
+    alertBox.classList.add("show");
+  
+    setTimeout(() => {
+      alertBox.classList.remove("show");
+    }, 2000); // stays visible for 2 seconds
+  }
+  
 
 
 //Currency convert (double check the math)
@@ -500,7 +510,7 @@ function updateBalance(giftValue) {
         balanceDisplay.textContent = coinBalance; // Update balance display
         return true;
     } else {
-        alert("Insufficient funds!");
+        showAlert("Insufficient coins ❕");
         return false;
      // Show warning if balance is too low, STYLE THIS WARNING! 
     }
