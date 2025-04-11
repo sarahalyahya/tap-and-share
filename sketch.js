@@ -600,6 +600,7 @@ likeButton.addEventListener('click', function() {
 
 const alertMessages = [
     "💰 USE your balance to gift the streamer!",
+    "💰 USE your balance to gift the streamer!",
     "🌹 Maybe a rose?",
     " 🤑Careful...don't spend it all!",
     "💬 Say 'Hello' in the chat",
@@ -670,15 +671,9 @@ function redirectToLogin() {
     chatContainer.style.display = "none";
     currencyContainer.style.display = "none";
     glossaryContainer.style.display = "none";
+    p5Canvas.style.visibility = "hidden";
     sideBar.style.visibility = "hidden";  // Hide sidebar
     loginForm.style.visibility = "visible";  // Show login form
+    
 }
 
-// Start the timer when the browser is opened
-openBrowserBtn.addEventListener("click", function(){
-    // Show the browser container
-    browserContainer.style.display = "flex";
-
-    // Start the timer for 10 minutes (600 seconds)
-    // 600 seconds = 10 minutes
-});
