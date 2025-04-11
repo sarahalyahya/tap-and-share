@@ -68,10 +68,11 @@
         <button id="toggleSidebar">☰</button>
     </div> -->
       <ul class="sidebar-menu">
-          <li id="open-currency-btn"><span class="icon">🔄</span> Currency</li>
-          <li id="open-glossary-btn"><span class="icon">📖</span>  Glossary</li>
-          <li id="open-chat-btn"><span class="icon">💌</span>  Chat</li>
-          <li id="open-browser-btn"><span class="icon">💻</span> Browser</li>
+          <li id="open-browser-btn"><span class="icon">💻 </span> Browser</li>
+          <li id="open-currency-btn"><span class="icon">🔄 </span> Currency</li>
+          <li id="open-glossary-btn"><span class="icon">📖 </span>  Glossary</li>
+          <li id="open-chat-btn"><span class="icon">💌 </span>  Chat</li>
+          
       </ul>
       
   
@@ -112,13 +113,25 @@
       <p>Virtual currency used on TikTok for gifting creators during live streams.</p>
       <hr>
       <h3>Gifting</h3>
-      <p>Sending virtual gifts to TikTok creators using coins.</p>
-      <h3>XYZ</h3>
-      <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+      <p>Sending virtual gifts during live streams as a way to support creators. Users purchase gifts with real money, which creators can exchange for cash.</p>
       <hr>
-      <h3>XYZ</h3>
-      <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+      <h3>Tap</h3>
+      <p>An action consisting of tapping the screen to engage with a live stream, helping boost its visibility and reach.</p>
+      <hr>
+      <h3>Share</h3>
+      <p>The act of sending a live stream to other users or platforms, either through direct messages, social media, or by copying the link. This helps increase the stream's reach and visibility to a broader audience.</p>
+      <hr>
+      <h3>LIVE Battle</h3>
+      <p>A feature where two creators go live simultaneously and compete for gifts from viewers. It is shown through a split screen. The creator who receives the most gifts during the battle wins</p>
+      <hr>
+      <h3>Double</h3>
+      <p>"x2" (times two) multiplier is a feature that temporarily doubles the points a creator earns from gifts during a specific period. When activated, any gifts sent by viewers contribute twice their usual point value to the creator's score. This multiplier is often used strategically to gain an advantage over opponents in live battles, as accumulating more points can enhance the creator's visibility and ranking on the platform</p>
+    <hr>
+    <h3>Triple</h3>
+      <p>"x3" (times three) multiplier is a feature that temporarily triples the points a creator earns from gifts during a specific period. When activated, any gifts sent by viewers contribute three times their usual point value to the creator's score. This multiplier is often used strategically to gain an advantage over opponents in live battles, as accumulating more points can enhance the creator's visibility and ranking on the platform</p>
     <hr> 
+    <h3>LIVE Goal</h3>
+    <p>A feature that allows creators to set a target for gifts or other forms of support during a live stream. Viewers can see the goal and contribute.</p>
 
    
    
@@ -191,31 +204,54 @@
         </div>
         </div>
 
+        <!-- Add this inside your browser container, typically in the fake browser window -->
+          <div class="follow-btn-container">
+            <button id="follow-btn" class="follow-btn">
+                <span class="follow-text" id="follow-text">Follow</span> 
+                <span id="follow-symbol" class="follow-symbol">+</span>
+            </button>
+          </div>
+
+
         <div class="scroll-btns">
           <span id="feed-scroll-up">▲</span>
           <span id="feed-scroll-down">▼</span>
         </div>
         <!-- Feed Container -->
         <div class="feed-container" id="feed">
+
+          <div class="post">
+            <iframe data-src="https://player.vimeo.com/video/1074095576?h=89c2d23d55&;badge=0&loop=1&autoplay=1&autopause=1&player_id=0&;app_id=58479"
+              loading="lazy" allow="autoplay"></iframe>
+          </div>
+
+          <div class="post">
+            <iframe data-src="https://player.vimeo.com/video/1074480327?h=8f770770de&;badge=0&loop=1&autoplay=1&autopause=1&player_id=0&app_id=58479"
+              loading="lazy" allow="autoplay"></iframe>
+          </div>
+
+          <div class="post">
+            <iframe data-src="https://player.vimeo.com/video/1074469755?h=ca5900b24e&;badge=0&loop=1&autoplay=1&autopause=1&player_id=0&app_id=58479"
+              loading="lazy" allow="autoplay"></iframe>
+          </div>
+
+          <div class="post">
+            
+            <iframe data-src="https://player.vimeo.com/video/1074491830?h=c23e28a797&;badge=0&loop=1&autoplay=1&autopause=1&player_id=0&app_id=58479"
+              loading="lazy" allow="autoplay"></iframe>
+          </div>
+
+
+
          
           <div class="post">
             
             <iframe data-src="https://player.vimeo.com/video/1074064925?h=d0a93261e7&;badge=0&loop=1&autoplay=1&autopause=1&player_id=0&app_id=58479"
               loading="lazy" allow="autoplay"></iframe>
           </div>
-          <div class="post">
-            <iframe data-src="https://player.vimeo.com/video/1074095576?h=89c2d23d55&;badge=0&loop=1&autoplay=1&autopause=1&player_id=0&;app_id=58479"
-              loading="lazy" allow="autoplay"></iframe>
-          </div>
-          <div class="post">
-            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"
-              loading="lazy" allow="autoplay"></iframe>
-          </div>
-          <div class="post">
-            <iframe data-src="https://player.vimeo.com/video/1062545259?h=60850a7148&autoplay=1&muted=0&loop=1&background=0&controls=0"
-              loading="lazy" allow="autoplay"></iframe>
-          </div>
-
+          
+          
+        
          
         </div>
 
@@ -231,8 +267,7 @@
 
   </div>
 
-
-    
+  
     
 
 </body>

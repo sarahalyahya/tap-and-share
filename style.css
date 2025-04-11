@@ -994,6 +994,70 @@ input {
   bottom: 0;   /* Position it at the bottom of the iframe */
 }
 
+
+
+/* Position the follow button inside the fake browser with rem units */
+/* Position the follow button inside the fake browser */
+.follow-btn-container {
+  position: absolute;
+  bottom: 4rem;  /* 20px in rem */
+  right: 1.25rem;   /* 20px in rem */
+  z-index: 999;     /* Ensure it's on top */
+}
+
+.follow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff0050;
+  color: white;
+  font-size: 1.125rem;  /* 18px in rem */
+  border: none;
+  padding: 0.75rem 1.5rem;  /* 12px 24px in rem */
+  border-radius: 1.875rem;  /* 30px in rem */
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.follow-btn .follow-symbol {
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  margin-left: 0.3rem;
+  font-size:2rem;
+}
+
+.follow-btn:hover {
+  background-color: #ff3377; /* Change color on hover */
+  transform: scale(1.1); /* Scale up the button on hover */
+}
+
+.follow-btn:active {
+  transform: scale(0.9); /* Slightly shrink when clicked */
+}
+
+/* Checkmark animation */
+.follow-btn.followed .follow-symbol {
+  transform: scale(1.3); /* Slightly enlarge the checkmark */
+  opacity: 0.8; /* Make the checkmark fade in */
+  font-size: 1.25rem; /* Increase the font size when the checkmark appears */
+}
+
+
+/* Heart burst animation */
+@keyframes heartBurst {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(1.8);
+      opacity: 0.7;
+  }
+  100% {
+      transform: scale(0);
+      opacity: 0;
+  }
+}
+
 #custom-alert {
   position: fixed;
   top: 2rem;
@@ -1031,6 +1095,9 @@ input {
   font-family: 'Quicksand', sans-serif; /* Use a readable font */
 }
 
+.icon{
+  margin-right: 0.2rem;
+}
 
 
 /* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur265.cur), auto !important;} /* End https://www.cursors-4u.com */

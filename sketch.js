@@ -50,7 +50,9 @@ const openBrowserBtn = document.getElementById("open-browser-btn");
 // console.log(balanceDisplay);
 // balanceDisplay.textContent = coinBalance; 
 
-
+const followBtn = document.getElementById('follow-btn');
+const followSymbol = document.getElementById('follow-symbol');
+let followText = document.getElementById('follow-text');
 function createBalance(){
     console.log(balanceDisplay);
     let coinBalance = Math.floor(Math.random()*10000);
@@ -445,6 +447,7 @@ closeGlossaryBtn.addEventListener("click", function(){
 openBrowserBtn.addEventListener("click", function(){
     browserContainer.style.display = "flex";
     setInterval(createFloatingAlert, 3000);
+    // resumeVimeoVideos();
     // openChat();
     
 })
@@ -490,6 +493,10 @@ const iframes = document.querySelectorAll('iframe');
 
         function scrollDown() {
             console.log("we here");
+            if (followBtn.classList.contains('followed')) {
+                followBtn.classList.remove('followed');  // Reset to initial state
+                followSymbol.textContent = '+';  // Reset the symbol back to "+"
+            }
             feed.scrollBy({ top: 592, behavior: 'smooth' });
 
         }
@@ -640,6 +647,7 @@ function createTimerOverlay() {
 
 // Function to start the countdown timer (in seconds)
 function startTimer(duration) {
+    
     const timerOverlay = createTimerOverlay();
     let remainingTime = duration; // Duration in seconds (e.g., 600 seconds = 10 minutes)
     
@@ -657,15 +665,74 @@ function startTimer(duration) {
     }, 1000); // Update every second
 }
 
+
+function clearOldTimer() {
+    const oldTimer = document.getElementById("timer-overlay");
+    if (oldTimer) {
+        oldTimer.remove();  // Remove the old timer if it exists
+    }
+}
+
+// Function to create the timer overlay
+function createTimerOverlay() {
+    clearOldTimer();  // First, clear any existing timer overlay
+    const overlay = document.createElement("div");
+    overlay.id = "timer-overlay";
+    document.body.appendChild(overlay);
+    return overlay;
+}
+
+
+function stopVimeoVideos() {
+    const iframes = document.querySelectorAll('iframe');
+    
+    iframes.forEach(iframe => {
+        // Store the current src
+        const iframeSrc = iframe.src;
+
+        // Remove the iframe src to stop the video
+        iframe.src = '';
+
+        // Optionally mute the video by adding the muted query parameter
+        iframe.src = iframeSrc.split('?')[0] + '?autoplay=0&muted=1'; // Add autoplay=0 to stop and mute it
+    });
+
+    // Hide the entire browser container to effectively stop everything
+    const browserContainer = document.getElementById("browser-container");
+    browserContainer.style.display = "none";
+}
+
+
+function resumeVimeoVideos() {
+    const iframes = document.querySelectorAll('iframe');
+
+    iframes.forEach(iframe => {
+        // Get the original iframe src from a custom attribute or from the current src URL
+        const originalSrc = iframe.getAttribute('data-src') || iframe.src;
+
+        // Restore the original src (without muting or pausing)
+        iframe.src = originalSrc;
+    });
+
+    // Show the browser container again
+    const browserContainer = document.getElementById("browser-container");
+    browserContainer.style.display = "flex";
+}
+
+
+
 // Function to redirect to the login screen after the timer ends
 function redirectToLogin() {
+    stopVimeoVideos();
+
+ 
     // Hide all elements
-    const browserContainer = document.getElementById("browser-container");
-    const chatContainer = document.getElementById("chatContainer");
-    const currencyContainer = document.getElementById("currency-container");
-    const glossaryContainer = document.getElementById("glossary-container");
-    const sideBar = document.getElementById("sidebar");
-    const loginForm = document.getElementById("login");
+    // const browserContainer = document.getElementById("browser-container");
+    // const chatContainer = document.getElementById("chatContainer");
+    // const currencyContainer = document.getElementById("currency-container");
+    // const glossaryContainer = document.getElementById("glossary-container");
+    // const sideBar = document.getElementById("sidebar");
+    // const loginForm = document.getElementById("login");
 
     browserContainer.style.display = "none";
     chatContainer.style.display = "none";
@@ -676,4 +743,22 @@ function redirectToLogin() {
     loginForm.style.visibility = "visible";  // Show login form
     
 }
+
+
+// Get the button and symbol elements
+
+
+// Add an event listener to trigger the animation and symbol change when clicked
+followBtn.addEventListener('click', function () {
+    // Toggle the "followed" class
+    if (followBtn.classList.contains('followed')) {
+        followBtn.classList.remove('followed');
+        followSymbol.textContent = '+';  // Change back to "+" if unfollowed
+        
+    } else {
+        followBtn.classList.add('followed');
+        followText.textContent = 'Following';
+        followSymbol.textContent = '✔';  // Change to checkmark when followed
+    }
+});
 
