@@ -55,6 +55,10 @@ const followSymbol = document.getElementById('follow-symbol');
 let followText = document.getElementById('follow-text');
 let alertInterval; 
 
+const infoContainer = document.getElementById('info-container');
+
+
+
 
 
 function createBalance(){
@@ -162,8 +166,9 @@ function makeInvisible(e){
     loginForm.style.visibility = "hidden";
     sideBar.style.visibility = "visible";
     p5Canvas.style.visibility = "visible";
+    showInfoIcon();
     makeDraggable(sideBar);
-    startTimer(10);
+    startTimer(600);
     //coinContainer.style.visibility = "visible";
 
     // allFolders.forEach(folder =>{
@@ -741,6 +746,7 @@ function resumeVimeoVideos() {
 function redirectToLogin() {
     stopVimeoVideos();
     stopFloatingAlerts();
+    hideInfoIcon();
 
  
     // Hide all elements
@@ -779,3 +785,10 @@ followBtn.addEventListener('click', function () {
     }
 });
 
+function showInfoIcon(){
+  infoContainer.style.display = 'flex'; 
+}
+
+function hideInfoIcon(){
+    infoContainer.style.display = 'none';
+}

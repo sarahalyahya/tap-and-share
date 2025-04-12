@@ -1100,6 +1100,74 @@ input {
 }
 
 
+/* Position the info container on the right side of the screen */
+.info-container {
+  position: fixed;
+  top: 5%;
+  right: 1rem;
+  transform: translateY(-50%); /* Center the icon vertically */
+  z-index: 1000; /* Make sure it's above other content */
+  cursor: pointer;
+  display: none;
+  align-items: center;
+}
+
+/* Style the info icon (i) */
+.info-icon {
+  font-size: 1.25rem; /* Make the icon large */
+  font-weight: 600;
+  color: #ff0050; /* Match the site's color */
+  background-color: #efc6f75e; /* Semi-transparent white background */
+  padding: 0.2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%; /* Round shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Add shadow for effect */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for the icon */
+.info-icon:hover {
+
+  background-color: #efc6f75e; /* Change color on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Style the info panel */
+.info-panel {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 120%;
+  right: 100%; /* Position to the right of the icon */
+  width: 20rem; /* Adjust width as needed */
+  background-color: #efc6f75e;
+  /* background-color: #fff1e69c; */
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  color: #333; /* Dark text color */
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Quicksand', sans-serif; /* Match the font */
+  z-index: 1001; /* Ensure it appears above other elements */
+}
+
+/* When hovered, display the panel */
+.info-container:hover .info-panel {
+  display: block;
+}
+
+/* Style for the panel text */
+.info-panel p {
+  margin: 0; /* Remove margin from paragraph */
+  font-size: 0.9rem;
+  color: #333;
+}
+
+
 /* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur265.cur), auto !important;} /* End https://www.cursors-4u.com */
 
 /* 
