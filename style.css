@@ -966,7 +966,7 @@ input {
 
 /* Add multiple hearts animation, dont love this animation rn, maybe edit later */
 .like-btn.clicked .heart::after {
-  content: "🩷🩷🩷";
+  content: "❤️❤️❤️";
   position: absolute;
   top: -20px;
   left: 50%;
@@ -977,7 +977,7 @@ input {
 
 /* Ensure hearts animate in the right direction */
 .like-btn.clicked .heart::before {
-  content: "🩷🩷🩷";
+  content: "❤️❤️❤️";
   position: absolute;
   bottom: -20px;
   left: 50%;

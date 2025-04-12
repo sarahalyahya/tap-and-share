@@ -53,6 +53,10 @@ const openBrowserBtn = document.getElementById("open-browser-btn");
 const followBtn = document.getElementById('follow-btn');
 const followSymbol = document.getElementById('follow-symbol');
 let followText = document.getElementById('follow-text');
+let alertInterval; 
+
+
+
 function createBalance(){
     console.log(balanceDisplay);
     let coinBalance = Math.floor(Math.random()*10000);
@@ -159,7 +163,7 @@ function makeInvisible(e){
     sideBar.style.visibility = "visible";
     p5Canvas.style.visibility = "visible";
     makeDraggable(sideBar);
-    startTimer(600);
+    startTimer(10);
     //coinContainer.style.visibility = "visible";
 
     // allFolders.forEach(folder =>{
@@ -446,7 +450,8 @@ closeGlossaryBtn.addEventListener("click", function(){
 
 openBrowserBtn.addEventListener("click", function(){
     browserContainer.style.display = "flex";
-    setInterval(createFloatingAlert, 3000);
+    startFloatingAlerts();
+     //setInterval(createFloatingAlert, 3000);
     // resumeVimeoVideos();
     // openChat();
     
@@ -630,7 +635,18 @@ function createFloatingAlert() {
     setTimeout(() => alert.remove(), 3000);
 }
 
+function startFloatingAlerts(){
+    if(!alertInterval){
+        alertInterval = setInterval(createFloatingAlert,3000);
+    }
+}
 
+function stopFloatingAlerts(){
+    if(alertInterval){
+        clearInterval(alertInterval);
+        alertInterval = null;
+    }
+}
 
 
 
@@ -724,6 +740,7 @@ function resumeVimeoVideos() {
 // Function to redirect to the login screen after the timer ends
 function redirectToLogin() {
     stopVimeoVideos();
+    stopFloatingAlerts();
 
  
     // Hide all elements
@@ -741,7 +758,7 @@ function redirectToLogin() {
     p5Canvas.style.visibility = "hidden";
     sideBar.style.visibility = "hidden";  // Hide sidebar
     loginForm.style.visibility = "visible";  // Show login form
-    
+    console.log("HIDING DONE");
 }
 
 
