@@ -61,7 +61,7 @@ const followSymbol = document.getElementById('follow-symbol');
 let followText = document.getElementById('follow-text');
 let alertInterval; 
 
-const infoContainer = document.getElementById('info-container');
+// const infoContainer = document.getElementById('info-container');
 
 
 
@@ -541,7 +541,7 @@ const iframes = document.querySelectorAll('iframe');
         });
       });
 
-let coinBalance = Math.floor(Math.random() * 2000); // Initial random balance
+let coinBalance = Math.floor(Math.random() * 2000) + 200; // Initial random balance
 balanceDisplay.textContent = coinBalance; // Display initial balance
 
 function updateBalance(giftValue) {
