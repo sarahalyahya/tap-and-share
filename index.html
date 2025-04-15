@@ -68,10 +68,11 @@
         <button id="toggleSidebar">☰</button>
     </div> -->
       <ul class="sidebar-menu">
+          <li id="open-welcome-btn"><span class="icon">👋 </span> Welcome</li>
           <li id="open-browser-btn"><span class="icon">💻 </span> Browser</li>
           <li id="open-currency-btn"><span class="icon">🔄 </span> Currency</li>
           <li id="open-glossary-btn"><span class="icon">📖 </span>  Glossary</li>
-          <li id="open-chat-btn"><span class="icon">💌 </span>  Chat</li>
+          <li id="open-chat-btn"><span class="icon">💌 </span> LIVE Chat</li>
           
       </ul>
       
@@ -86,21 +87,27 @@
 <!-- Currency Pop-up -->
  <div id="currency-container">
   <div id="currency-header">
-    <span>How much are your coins worth?</span>
+    <span> TikTok Coin Value Checker</span>
     <button class="close-btn" id="close-currency-btn">X</button>
   </div>
   <div id="currency-content">
-    <label for="amount">Enter Amount:</label>
+    <label for="amount">Check value for:</label>
     <input type="number" id="currency-amount" placeholder="Enter value...">
     <label for="conversion">Convert:</label>
     <select id="currency-select">
       <option value="USD-to-coins">USD ➝ TikTok Coins</option>
-      <option value="coins-to-USD">TikTok ➝ Coins USD </option>
+      <option value="coins-to-USD">TikTok Coins ➝ USD </option>
     </select>
-    <button id="convert-btn">Convert</button>
+    <button id="convert-btn">Show Estimate Value</button>
     <div class="result" id="result"></div>
   </div>
  </div>
+
+
+
+
+
+
 
  <!-- Glossary Pop-up -->
 <div class="glossaryContainer" id="glossary-container">
@@ -225,8 +232,8 @@
 
 
         <div class="scroll-btns">
-          <span id="feed-scroll-up">▲</span>
-          <span id="feed-scroll-down">▼</span>
+          <span id="feed-scroll-up">▲ <span id="scroll-txt">Scroll Up</span> </span>
+          <span id="feed-scroll-down">▼ <span id="scroll-txt"> Scroll Down</span></span>
         </div>
         <!-- Feed Container -->
         <div class="feed-container" id="feed">

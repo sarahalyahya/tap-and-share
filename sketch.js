@@ -454,6 +454,7 @@ closeGlossaryBtn.addEventListener("click", function(){
 })
 
 openBrowserBtn.addEventListener("click", function(){
+    console.log("browser here");
     browserContainer.style.display = "flex";
     startFloatingAlerts();
      //setInterval(createFloatingAlert, 3000);

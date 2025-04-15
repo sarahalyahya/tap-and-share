@@ -792,6 +792,10 @@ input {
   display: none;
 }
 
+#scroll-txt{
+  font-size: 13px;
+}
+
 
 #feed {
   position: relative;
@@ -910,7 +914,7 @@ input {
 
 #balance{
   color: GOLD;
-  
+
 }
 
 
@@ -1167,9 +1171,7 @@ input {
   font-size: 0.9rem;
   color: #333;
 }
-
-
-/* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur265.cur), auto !important;} /* End https://www.cursors-4u.com */
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur267.cur), auto !important;} /* End https://www.cursors-4u.com */
 
 /* 
 #00F2EA CYAN
