@@ -207,7 +207,7 @@ closeWelcomeBtn.addEventListener("click", closeWelcome);
 function openWelcome(){
     welcomeContainer.style.display = "block"
     makeDraggable(welcomeContainer);
-    coinInstruction.innerHTML= `The access code has provided you with <strong>${coinBalance} TikTok Coins </strong> for a limited time indicated by the <strong> Timer </strong> on the bottom right. Spend them wisely.`;
+    coinInstruction.innerHTML= `The access code has provided you with <strong>${coinBalance} TikTok Coins </strong> for a limited time indicated by the <strong> ⏳Timer </strong> on the bottom right. Spend them wisely.`;
 }
 
 function closeWelcome(){
@@ -695,7 +695,7 @@ function startTimer(duration) {
     const timerInterval = setInterval(() => {
         const minutes = Math.floor(remainingTime / 60); // Get the minutes
         const seconds = remainingTime % 60; // Get the remaining seconds
-        timerOverlay.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+        timerOverlay.textContent = `⏳${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
         
         if (remainingTime <= 0) {
             clearInterval(timerInterval); // Stop the timer when it reaches 0
