@@ -403,6 +403,81 @@ body {
 
 /* coin balance */
 
+/* Welcome */
+
+#welcome-container {
+  position: fixed;
+  top: 12rem;
+  left: 30rem;
+  max-height: 60vh;
+  width: 30rem; 
+  background: white;
+  border: 2px solid black;
+  padding: 1rem;
+  display: none; 
+  overflow-y: auto;
+  z-index: 99999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#welcome-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+#welcome-container::-webkit-scrollbar-thumb {
+  background: #25F4EE; /* Neon blue */
+  border-radius: 4px;
+}
+
+#welcome-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+  border-bottom: 2px solid #ea0d39;
+  padding-bottom: 0.5rem;
+}
+
+#welcome-header .close-btn {
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+}
+
+#welcome-content {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-height: 50vh; 
+  overflow-y: auto;
+}
+
+
+
+#welcome-content h3 {
+  color: #000000;
+  margin-bottom: 0.3rem;
+}
+
+/* Glossary Text */
+#welcome-content p {
+  color: black;
+  margin-bottom: 1rem;
+}
+
+/* Horizontal Line Between Entries */
+#welcome-content hr {
+  border: 0;
+  height: 1px;
+  background: #FE2C55; /* Neon pink */
+  margin: 1rem 0;
+  opacity: 0.6;
+}
+
 
 
 /* glossary */

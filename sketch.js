@@ -14,6 +14,12 @@ const sideBar = document.getElementById("sidebar");
 const sidebarWidth = parseFloat(getComputedStyle(sidebar).width);
 const sideBarHeight = parseFloat(getComputedStyle(sidebar).height);
 
+const openWelcomeBtn = document.getElementById("open-welcome-btn");
+const welcomeContainer = document.getElementById("welcome-container");
+const closeWelcomeBtn = document.getElementById("close-welcome-btn");
+let coinInstruction = document.getElementById("coin-instruction");
+
+
 const openChatBtn = document.getElementById("open-chat-btn");
  const chatBox = document.getElementById("chatBox");
  const chatContainer = document.getElementById("chatContainer");
@@ -63,7 +69,7 @@ const infoContainer = document.getElementById('info-container');
 
 function createBalance(){
     console.log(balanceDisplay);
-    let coinBalance = Math.floor(Math.random()*10000);
+    
     console.log("coin balance: " + coinBalance); 
     balanceDisplay.textContent = coinBalance; 
     
@@ -192,8 +198,21 @@ function makeInvisible(e){
 
 
 
+openWelcomeBtn.addEventListener("click", openWelcome);
+closeWelcomeBtn.addEventListener("click", closeWelcome);
 
 
+
+
+function openWelcome(){
+    welcomeContainer.style.display = "block"
+    makeDraggable(welcomeContainer);
+    coinInstruction.innerHTML= `The access code has provided you with <strong>${coinBalance} TikTok Coins </strong> for a limited time indicated by the <strong> Timer </strong> on the bottom right. Spend them wisely.`;
+}
+
+function closeWelcome(){
+    welcomeContainer.style.display = "none"; 
+}
 //chat pop up
 openChatBtn.addEventListener("click", openChat);
 closeChatBtn.addEventListener("click", closeChat);
