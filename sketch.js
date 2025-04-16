@@ -172,7 +172,7 @@ function makeInvisible(e){
     loginForm.style.visibility = "hidden";
     sideBar.style.visibility = "visible";
     p5Canvas.style.visibility = "visible";
-    showInfoIcon();
+    // ();showInfoIcon
     makeDraggable(sideBar);
     startTimer(600);
     //coinContainer.style.visibility = "visible";
@@ -805,10 +805,10 @@ followBtn.addEventListener('click', function () {
     }
 });
 
-function showInfoIcon(){
-  infoContainer.style.display = 'flex'; 
-}
+// function showInfoIcon(){
+//   infoContainer.style.display = 'flex'; 
+// }
 
-function hideInfoIcon(){
-    infoContainer.style.display = 'none';
-}
+// function hideInfoIcon(){
+//     infoContainer.style.display = 'none';
+// }
