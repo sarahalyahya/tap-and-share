@@ -696,6 +696,14 @@ function startTimer(duration) {
         const minutes = Math.floor(remainingTime / 60); // Get the minutes
         const seconds = remainingTime % 60; // Get the remaining seconds
         timerOverlay.textContent = `⏳${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+
+        if (remainingTime <= 60) {
+            timerOverlay.style.backgroundColor = "#FF0050";
+            timerOverlay.style.color = "white";
+            timerOverlay.style.fontWeight = "bold";
+            timerOverlay.style.animation = "pulse 1s infinite";
+            showAlert("⏰ Time is running out!");
+        }
         
         if (remainingTime <= 0) {
             clearInterval(timerInterval); // Stop the timer when it reaches 0
@@ -766,7 +774,7 @@ function resumeVimeoVideos() {
 function redirectToLogin() {
     stopVimeoVideos();
     stopFloatingAlerts();
-    hideInfoIcon();
+    
 
  
     // Hide all elements
@@ -796,6 +804,7 @@ followBtn.addEventListener('click', function () {
     // Toggle the "followed" class
     if (followBtn.classList.contains('followed')) {
         followBtn.classList.remove('followed');
+        followText.textContent='Follow';
         followSymbol.textContent = '+';  // Change back to "+" if unfollowed
         
     } else {
