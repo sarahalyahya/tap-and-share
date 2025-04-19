@@ -60,11 +60,15 @@ const followBtn = document.getElementById('follow-btn');
 const followSymbol = document.getElementById('follow-symbol');
 let followText = document.getElementById('follow-text');
 let alertInterval; 
+let currentUsername = "";
 
 // const infoContainer = document.getElementById('info-container');
 
 
-
+window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("username-field").focus();
+  });
+  
 
 
 function createBalance(){
@@ -167,7 +171,11 @@ function makeDraggable(folder){
 loginButton.addEventListener("click", makeInvisible); 
 
 function makeInvisible(e){
-    console.log(sideBar.offsetWidth); 
+
+    const usernameInput = document.getElementById("username-field").value.trim();
+    currentUsername = usernameInput || "Guest";
+
+    document.getElementById("sidebar-greeting").textContent = `Hello, ${currentUsername}!`;
    e.preventDefault(); 
     loginForm.style.visibility = "hidden";
     sideBar.style.visibility = "visible";
@@ -217,6 +225,13 @@ function closeWelcome(){
 openChatBtn.addEventListener("click", openChat);
 closeChatBtn.addEventListener("click", closeChat);
 sendBtn.addEventListener("click", sendMessage);
+document.getElementById("userInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault(); // prevent form submission
+        sendMessage();
+    }
+});
+
 
 
 
@@ -258,7 +273,8 @@ async function loadMessages() {
 function addMessage(text, user, isUser = false) {
     const messageElement = document.createElement("div");
     messageElement.classList.add("message");
-    messageElement.textContent = isUser ? `You: ${text}` : `${user}: ${text}`;
+    messageElement.textContent = isUser ? `${currentUsername}: ${text}` : `${user}: ${text}`;
+
     
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
@@ -541,7 +557,7 @@ const iframes = document.querySelectorAll('iframe');
         });
       });
 
-let coinBalance = Math.floor(Math.random() * 2000) + 200; // Initial random balance
+let coinBalance = Math.floor(Math.random() * 2000) + 400; // Initial random balance
 balanceDisplay.textContent = coinBalance; // Display initial balance
 
 function updateBalance(giftValue) {

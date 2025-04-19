@@ -127,10 +127,34 @@ body {
   z-index: 1;
 }
 
+.login-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: black;
+  text-shadow: 1px 1px white;
+  align-self: start;
+}
+
+.login-field-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: black;
+  min-width: 8rem;
+  text-align: right;
+}
 
 
 #login-header{
   font-size: 5rem;
+  margin-bottom: 2rem;
   color: black;
   text-align: center;	
   text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
@@ -149,13 +173,29 @@ body {
 .login-form-field {
   border: none;
   margin-bottom: 3rem;
-  margin-top: 0.5rem;
+  margin-top: 0rem;
   border-radius: 6px;
   outline:white; 
   padding: 0rem 0rem 0.2rem 0.2rem;
   width: 15rem;
   font-size: 1.5rem;
-  z-index: 1
+  z-index: 1;
+  border: 2px solid white;
+  border-radius: 6px;
+  padding: 0.5rem;
+  width: 15rem;
+  font-size: 1.2rem;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+
+.login-form-field:focus {
+  outline: none;
+  border-color: #ff0050;
+  box-shadow: 0 0 10px #ff0050, 0 0 20px #25F4EE;
+}
+#username-field{
+  margin-bottom: 1.2rem;
 }
   
 .pushable {
@@ -1254,7 +1294,7 @@ input {
   font-size: 0.9rem;
   color: #333;
 }
-/* Start https://www.cursors-4u.com */ * {cursor: url(https://ani.cursors-4u.net/cursors/cur-11/cur1089.cur), auto !important;} /* End https://www.cursors-4u.com *//* 
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://ani.cursors-4u.net/cursors/cur-11/cur1089.cur), auto !important;} /* End 
 #00F2EA CYAN
 #FF0050	TIKTOK PINK
 #FFC8DD	BABY PINK
