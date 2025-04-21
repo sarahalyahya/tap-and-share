@@ -1296,7 +1296,7 @@ input {
 }
 
 
-@media (width: 1365px) and (height: 1080px) {
+@media (min-width: 1365px) and (min-height: 1080px) {
 
   .browser .browser-header{
     height: 3rem; 
