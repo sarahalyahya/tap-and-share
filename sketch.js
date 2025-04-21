@@ -142,7 +142,7 @@ function makeInvisible(e){
     p5Canvas.style.visibility = "visible";
 
     makeDraggable(sideBar);
-    startTimer(3);
+    startTimer(600);
  
 
     if (!popupsActive){
