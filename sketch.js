@@ -182,7 +182,7 @@ function makeInvisible(e){
     p5Canvas.style.visibility = "visible";
     // ();showInfoIcon
     makeDraggable(sideBar);
-    startTimer(600);
+    startTimer(6);
     //coinContainer.style.visibility = "visible";
 
     // allFolders.forEach(folder =>{
@@ -723,7 +723,7 @@ function startTimer(duration) {
         
         if (remainingTime <= 0) {
             clearInterval(timerInterval); // Stop the timer when it reaches 0
-            redirectToLogin(); // Redirect to login screen when the timer ends
+            showSessionEndPanel(); // Redirect to login screen when the timer ends
         } else {
             remainingTime--; // Decrease the remaining time by 1 second
         }
@@ -837,3 +837,66 @@ followBtn.addEventListener('click', function () {
 // function hideInfoIcon(){
 //     infoContainer.style.display = 'none';
 // }
+function showSessionEndPanel() {
+    const panel = document.getElementById("session-end-panel");
+    const messageBox = document.getElementById("session-message");
+  
+    const message = `One evening in 2023, when I lived in the UAE, I received a peculiar TikTok LIVEstream on my feed. It was a stream of a migrant worker camp, one of many that have been systematically hidden and covered up by the government. I wasn’t wise enough at the time to record the livestream, and then I moved away, and all my attempts to find such streams again failed.\n\nDuring the beginning of the onslaught on Gaza, I remembered that incident, and wondered whether people in Gaza were taking to TikTok LIVE. I don’t remember what I did, or  how I got there, but eventually, I found those streams. \n\nI was spending hours a day with Abou Yazan, Mahmoud, and Tasnim, among many other streamers. As you saw, they were often just repeating scripts or having conversations I didn’t always understand. I stayed with them anyway, because I thought maybe it was better than anything else I could be doing. Sometimes I’d send a comment and ask how they were, or contribute to the conversation, but mostly, I just watched, accompanying them. \n\n In the mornings, my routine started with grabbing my phone and checking to see if any of them were streaming LIVE as a way to make sure they were still okay.\n\nDespite TikTok’s exploitative features and biased moderation, I’ve observed that TikTok LIVE has become a space for Gazans can more freely express themselves, even if only marginally. This isn’t necessarily thanks to the platform’s goodwill. In fact, it’s primarily due to the streamers’ ability to quickly learn how to maneuver the platform and tactically avoid its targeted restrictions. \n\nOn TikTok LIVE, streamers gathered with eachother. I would watch family members divided by displacement meet on the platform’s strangely competitive battleground, or watch everyday people from all over the world taking up streaming to translate the words of those from Gaza for their local audience.\n\n\n\nThis work is in honor of these streamers, one group among the many truth-tellers of Gaza.`;
+  
+    const paragraphs = message.trim().split("\n\n");
+    let index = 0;
+  
+    panel.style.display = "flex";
+    messageBox.innerHTML = "";
+  
+    function typeParagraph(text, callback) {
+      const p = document.createElement("p");
+      messageBox.appendChild(p);
+      let i = 0;
+  
+      function typeChar() {
+        if (i < text.length) {
+          p.textContent += text.charAt(i);
+          messageBox.scrollTop = messageBox.scrollHeight;
+          i++;
+          setTimeout(typeChar, 60);
+        } else {
+          callback && callback();
+        }
+      }
+  
+      typeChar();
+    }
+  
+    function next() {
+      if (index < paragraphs.length - 1) {
+        // type regular paragraph
+        typeParagraph(paragraphs[index], () => {
+          index++;
+          setTimeout(next, 800);
+        });
+      } else {
+        // Final paragraph coming next
+        setTimeout(() => {
+          // Clear screen first
+          messageBox.innerHTML = "";
+  
+          // Type only final paragraph
+          typeParagraph(paragraphs[index], () => {
+            setTimeout(() => redirectToLoginFinal(), 5000);
+          });
+        }, 1000); // wait before erasing
+      }
+    }
+  
+    next();
+  }
+  
+  
+  
+  
+  function redirectToLoginFinal() {
+    document.getElementById("session-end-panel").style.display = "none";
+    redirectToLogin(); // your existing login reset function
+  }
+  

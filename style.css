@@ -1296,6 +1296,56 @@ input {
 }
 
 
+#session-end-panel {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 241, 230, 0.95);
+  z-index: 999999; /* high enough to be above everything else */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.session-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  height: 60vh;
+  width: 80vw;
+  max-width: 900px;
+  overflow: hidden;
+  text-align: center;
+}
+
+#session-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+#session-message p {
+  margin: 0.4rem 0;
+  font-size: 1.2rem;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
 @media (min-width: 1365px) and (min-height: 1080px) {
 
   .browser .browser-header{
@@ -1312,6 +1362,9 @@ input {
     
   }
 }
+
+
+
 
 
 /* Start https://www.cursors-4u.com */ * {cursor: url(https://ani.cursors-4u.net/cursors/cur-11/cur1089.cur), auto !important;} /* End 
