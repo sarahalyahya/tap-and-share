@@ -182,7 +182,7 @@ function makeInvisible(e){
     p5Canvas.style.visibility = "visible";
     // ();showInfoIcon
     makeDraggable(sideBar);
-    startTimer(6);
+    startTimer(600);
     //coinContainer.style.visibility = "visible";
 
     // allFolders.forEach(folder =>{
@@ -867,7 +867,7 @@ function showSessionEndPanel() {
           p.textContent += line.charAt(charIndex);
           charIndex++;
           messageBox.scrollTop = messageBox.scrollHeight; // 🔥 this keeps it scrolling up!
-          setTimeout(typeChar, 60);
+          setTimeout(typeChar, 80);
         } else {
           lineIndex++;
           setTimeout(typeLine, line.trim() === "" ? 700 : 300);
