@@ -1320,22 +1320,30 @@ input {
   max-width: 900px;
   overflow: hidden;
   text-align: center;
+  font-weight: 600;
 }
 
 #session-message {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  height: 60vh;
+  width: 80vw;
+  max-width: 800px;
+  overflow-y: hidden;
+  position: relative;
+  padding: 1rem;
 }
 
 #session-message p {
-  margin: 0.4rem 0;
   font-size: 1.2rem;
-  opacity: 1;
-  transition: opacity 0.3s ease;
+  line-height: 1.6;
+  margin: 0.3rem 0;
+  white-space: pre-wrap;
+  text-align: center;
 }
+
 
 
 
