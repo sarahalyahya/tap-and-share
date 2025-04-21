@@ -182,7 +182,7 @@ function makeInvisible(e){
     p5Canvas.style.visibility = "visible";
     // ();showInfoIcon
     makeDraggable(sideBar);
-    startTimer(600);
+    startTimer(3);
     //coinContainer.style.visibility = "visible";
 
     // allFolders.forEach(folder =>{
@@ -841,8 +841,7 @@ function showSessionEndPanel() {
     const panel = document.getElementById("session-end-panel");
     const messageBox = document.getElementById("session-message");
   
-    const message = `One evening in 2023, when I lived in the UAE, I received a peculiar TikTok LIVEstream on my feed. It was a stream of a migrant worker camp, one of many that have been systemically hidden and covered up by the government. I wasn’t wise enough at the time to record the livestream, and then I left the country, and all my attempts to find such streams again failed.\n\nAt the beginning of the onslaught on Gaza, I remembered that incident, and wondered whether people in Gaza were taking to TikTok LIVE. I don’t remember what I did, or  how I got there, but eventually, I found those streams. \n\nI was spending hours a day with Abou Yazan, Mahmoud, and Tasnim, among many other streamers. As you saw, they were often just repeating scripts or having conversations I didn’t always understand. I stayed with them anyway, because I thought maybe it was better than anything else I could be doing. Sometimes I’d send a comment and ask how they were, or contribute to the conversation, but mostly, I just watched, accompanying them. \n\n In the mornings, my routine started with grabbing my phone and checking to see if any of them were streaming LIVE as a way to make sure they were still okay.\n\nDespite TikTok’s exploitative features and biased moderation, I’ve observed that TikTok LIVE has become a space where Gazans can more freely express themselves, even if only marginally. \n\nThis happened in spite of the platform, not because of it.\n\n It was due to the streamers’ ability to quickly learn how to maneuver the platform and tactically avoid its targeted restrictions. \n\nOn TikTok LIVE, streamers gathered with each other. I would watch family members divided by displacement meet on the platform’s strangely competitive battleground, or watch everyday people from all over the world taking up streaming to translate the words of those from Gaza for their local audience.\n\n\n\nThis work is in honor of these streamers, who are among the many truth-tellers of Gaza.`;  
-    const lines = message.split("\n");
+    const message = `One evening in 2023, when I lived in the UAE, I received a peculiar TikTok LIVEstream on my feed. It was a stream of a migrant worker camp, one of many that have been systemically hidden and covered up by the government. I wasn’t wise enough at the time to record the livestream, and then I left the country, and all my attempts to find such streams again failed.\n\nAt the beginning of the onslaught on Gaza, I remembered that incident, and wondered whether people in Gaza were taking to TikTok LIVE. I don’t remember what I did, or how I got there, but eventually, I found those streams. \n\nI was spending hours a day with Abou Yazan, Mahmoud, and Tasnim, among many other streamers. As you saw, they were often just repeating scripts or having conversations I didn’t always understand. I stayed with them anyway, because I thought maybe it was better than anything else I could be doing. Sometimes I’d send a comment and ask how they were, or contribute to the conversation, but mostly, I just watched, accompanying them. \n\n Perhaps they did not know of me or my presence, but every morning I would find myself wanting to check on them by seeing if they’re streaming. \n\nDespite TikTok’s exploitative features and biased moderation, I’ve observed that TikTok LIVE has become a space where Gazans can more freely express themselves, even if only marginally. \n\nThis happened in spite of the platform, not because of it.\n\n It was due to the streamers’ ability to quickly learn how to maneuver the platform and tactically avoid its targeted restrictions. \n\nOn TikTok LIVE, streamers gathered together. I would watch family members divided by displacement meet in the strange setting of the platform’s competitive battleground, or watch people from all over the world taking up streaming to translate the words of those from Gaza for their local audience.\n\n\n\nThis piece document the practice of these streamers, who are among the many truth-tellers of Gaza.`;    const lines = message.split("\n");
   
     panel.style.display = "flex";
     messageBox.innerHTML = "";
@@ -867,7 +866,7 @@ function showSessionEndPanel() {
           p.textContent += line.charAt(charIndex);
           charIndex++;
           messageBox.scrollTop = messageBox.scrollHeight; // 🔥 this keeps it scrolling up!
-          setTimeout(typeChar, 80);
+          setTimeout(typeChar, 90);
         } else {
           lineIndex++;
           setTimeout(typeLine, line.trim() === "" ? 700 : 300);

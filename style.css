@@ -1323,18 +1323,20 @@ input {
   font-weight: 600;
 }
 
-#session-message {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 60vh;
-  width: 80vw;
-  max-width: 800px;
-  overflow-y: hidden;
-  position: relative;
-  padding: 1rem;
-}
+
+  #session-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60vh;
+    width: 80vw;
+    max-width: 800px;
+    overflow-y: auto;      
+    scroll-behavior: smooth; 
+    padding: 1rem;
+  }
+  
 
 #session-message p {
   font-size: 1.2rem;
