@@ -304,7 +304,6 @@ let resultText = "";
     result = userConversionInput*USDToCoins;
     let tiktokTakes = result*tiktokCut;
     let creatorGets = result - tiktokTakes; 
-    //conversionResult.innerHTML = `${userConversionInput} USD ≈ ${result.toFixed(2)} TikTok Coins`;
     
     resultText = `
                 <p><strong>${userConversionInput.toFixed(2)} USD</strong> ≈ <strong>${result.toFixed(3)} Coins</strong></p>
@@ -434,52 +433,7 @@ document.querySelectorAll(".gift").forEach(item => {
 });
 });
 
-// // Balance update function
-// function updateBalance(giftValue) {
-//     if (coinBalance >= giftValue) {
-//         // Deduct gift value from balance
-//         coinBalance -= giftValue;
-//         balanceDisplay.textContent = coinBalance; // Update balance display
-//         return true; // Indicate that the balance was updated and animation should proceed
-//     } else {
-//         alert("Insufficient funds!");
-//         showWarning(); // Show warning message if balance is too low
-//         return false; // Indicate that there are insufficient funds
-//     }
-// }
 
-// // Function to show warning for insufficient funds
-// function showWarning() {
-//     const warningMessage = document.createElement('div');
-//     warningMessage.textContent = "Insufficient funds! Please add more coins.";
-//     warningMessage.classList.add('warning-message');
-    
-//     // Append to body and remove after 3 seconds
-//     document.body.appendChild(warningMessage);
-//     setTimeout(() => warningMessage.remove(), 3000);
-// }
-
-// // Attach click event to each gift
-// document.querySelectorAll(".gift").forEach(item => {
-//     item.addEventListener("click", function() {
-//         let giftValue = parseInt(this.getAttribute("data-value")); // Get gift value
-        
-//         // Check if the balance is sufficient before showing the animation
-//         if (updateBalance(giftValue)) {
-//             const animatedGiftImage = document.createElement('img');
-//             animatedGiftImage.src = this.querySelector('.gift-img').src; // Get the gift image source
-//             animatedGiftImage.classList.add('animated-gift');
-
-//             // Append the image to the body (above the iframe)
-//             document.body.appendChild(animatedGiftImage);
-
-//             // Handle animation end and remove image after the animation
-//             animatedGiftImage.addEventListener('animationend', () => {
-//                 animatedGiftImage.remove();
-//             });
-//         }
-//     });
-// });
 
 
 const likeButton = document.querySelector('.like-btn');
@@ -533,8 +487,6 @@ function stopFloatingAlerts(){
 
 
 
-
-// 
 
 // Function to create the timer overlay in the bottom-left corner
 function createTimerOverlay() {
@@ -672,7 +624,7 @@ function showSessionEndPanel() {
     const panel = document.getElementById("session-end-panel");
     const messageBox = document.getElementById("session-message");
   
-    const message = `One evening in 2023, when I lived in the UAE, I received a peculiar TikTok LIVEstream on my feed. It was a stream of a migrant worker camp, one of many that have been systemically hidden and covered up by the government. I wasn’t wise enough at the time to record the livestream, and then I left the country, and all my attempts to find such streams again failed.\n\nAt the beginning of the onslaught on Gaza, I remembered that incident, and wondered whether people in Gaza were taking to TikTok LIVE. I don’t remember what I did, or how I got there, but eventually, I found those streams. \n\nI was spending hours a day with Abou Yazan, Mahmoud, and Tasnim, among many other streamers. As you saw, they were often just repeating scripts or having conversations I didn’t always understand. I stayed with them anyway, because I thought maybe it was better than anything else I could be doing. Sometimes I’d send a comment and ask how they were, or contribute to the conversation, but mostly, I just watched, accompanying them. \n\n Perhaps they did not know of me or my presence, but every morning I would find myself wanting to check on them by seeing if they’re streaming. \n\nDespite TikTok’s exploitative features and biased moderation, TikTok LIVE has become a space where Gazans can more freely express themselves, even if only marginally. \n\nThis happened in spite of the platform, not because of it.\n\n It was due to the streamers’ ability to quickly learn how to maneuver the platform and tactically avoid its targeted restrictions. \n\nOn TikTok LIVE, streamers gathered together. I would watch family members divided by displacement meet in the strange setting of the platform’s competitive battleground, or watch people from all over the world taking up streaming to translate the words of those from Gaza for their local audience.\n\n\n\nThis piece document the practice of these streamers, who are among the many truth-tellers of Gaza.`;    const lines = message.split("\n");
+    const message = `One evening in 2023, while living in the UAE, I came across a TikTok LIVE of a migrant worker camp, one of many hidden by the government. I didn’t record it, and after I left the country, I never found one like it again.\n\nWhen the genocide in Gaza began, I remembered that stream. I don’t know how I got there, but eventually I found Gazans going LIVE.\n\nI spent hours a day with Abou Yazan, Mahmoud, and Tasnim. They often repeated scripts or spoke in ways I couldn’t follow, but I stayed. Sometimes I’d comment, but mostly I just watched.\n\nThey may not have known I was there, but every morning I’d check in, hoping they were livestreaming.\n\nDespite TikTok’s exploitative systems, TikTok LIVE became a space for Gazans to speak, even if only marginally.\n\nThis was despite the platform, not because of it.\n\nOn TikTok LIVE, streamers gathered together. I would watch family members divided by displacement meet in the strange setting of the platform’s competitive battleground, or watch people from all over the world taking up streaming to translate the words of those from Gaza for their local audience.\n\n\n\nThis work documents the practice of these streamers, who are among the many truth-tellers of Gaza.`;
   
     panel.style.display = "flex";
     messageBox.innerHTML = "";
