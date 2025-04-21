@@ -242,110 +242,8 @@ function sendMessage() {
 }
 
 
-// const URL = "https://vimeo.com/1074064925/d0a93261e7?ts=0&share=copy"; 
 
 
-// function generateVidPopup(){
-
-//     //create pop up element
-//     const videoPopup = document.createElement("div");
-//     videoPopup.classList.add("video-popup");
-
-//     //choose random vid from array goes here (when there's multiple links)
-
-//     //create iframe which goes inside pop up
-//     const videoIframe = document.createElement("iframe"); 
-//     //  videoIframe.src = `${ytURL}?autoplay=1&modestbranding=1&showinfo=0&controls=0`;
-//     videoIframe.src = URL;
-//     // videoIframe.width = "200"; 
-//     // videoIframe.height = "560";
-//     videoIframe.allow = "autoplay; encrypted-media";
-
-
-//     //close btn
-//     const videoPopupClose = document.createElement("button");
-//     videoPopupClose.classList.add("close-btn"); 
-//     videoPopupClose.setAttribute("id","popup-close-btn");
-//     videoPopupClose.textContent = "X";
-//     videoPopupClose.onclick = () => videoPopup.remove();
-
-//     //donate button, needs to be gift specific later aaaaaAAA
-//     const videoGiftButton = document.createElement("button");
-//     videoGiftButton.classList.add("gift-button");
-//     videoGiftButton.textContent = "Gift";
-//     videoGiftButton.addEventListener("click",() => updateCoins(-5));
-    
-
-   
-//     videoPopup.appendChild(videoIframe); 
-//     videoPopup.appendChild(videoPopupClose);
-//     videoPopup.appendChild(videoGiftButton);
-//     document.body.appendChild(videoPopup); 
-
-//   PopupPosition(videoPopup);  
-
-// }
-
-
-
-// //every 10 seconds rn
-// function startVidPopup(){
-//     setInterval(generateVidPopup, (Math.random()*50000)); 
-// }
-
-// function startAdPopup(){
-//     setInterval(generateAdPopup, (Math.random()*50000));
-//     console.log("yeah I'm here");
-// }
-
-// //randomize
-// function PopupPosition(popup){
-//     const padding = 20;
-//     const maxX = window.innerWidth - popup.clientWidth - padding;
-//     const maxY = window.innerHeight - popup.clientHeight - padding;
-
-//     const randomX = Math.random() * (maxX - sidebarWidth) +sidebarWidth; 
-//     const randomY = Math.random() * maxY; 
-
-//     popup.style.left = `${randomX}px`;
-//     popup.style.top = `${randomY}px`;
-
-// }
-
-// const adImgs = ["assets/ads/cakemarketing.png", "assets/ads/reducedPriceBoxing!.png"]
-
-// //pop up ads
-// function generateAdPopup(){
-
-//     //create pop up element
-//     const adPopup = document.createElement("div");
-//     adPopup.classList.add("ad-popup");
-
-//     //choose random vid from array goes here (when there's multiple links)
-
-//     //create iframe which goes inside pop up
-//     const adImg = document.createElement("img"); 
-//     adImg.src = adImgs[Math.floor(Math.random() * 2)]
-
-
-//     //close btn
-//     const adPopupClose = document.createElement("button");
-//     adPopupClose.classList.add("close-btn"); 
-//     adPopupClose.setAttribute("id","popup-close-btn");
-//     adPopupClose.textContent = "X";
-//     adPopupClose.onclick = () => adPopup.remove();
-
-//     //donate button, needs to be gift specific later aaaaaAAA
-    
-
-   
-//     adPopup.appendChild(adImg); 
-//     adPopup.appendChild(adPopupClose);
-//     document.body.appendChild(adPopup); 
-
-//   PopupPosition(adPopup);  
-
-// }
 
 
 function updateCoins(amount){
@@ -353,7 +251,7 @@ function updateCoins(amount){
     balanceDisplay.textContent = coinBalance;
     
    
-//stylizing an alert will def be better (so make one)
+
     if (coinBalance == 0){
        showAlert("Not enough coins!");
     }
@@ -371,7 +269,7 @@ function showAlert(message) {
   
 
 
-//Currency convert (double check the math)
+//Currency convert 
 openCurrencyBtn.addEventListener("click", function(){
     makeDraggable(currencyContainer);
     currencyContainer.style.display = "block";
