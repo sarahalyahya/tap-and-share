@@ -633,7 +633,7 @@ function showSessionEndPanel() {
   
     function typeLine() {
       if (lineIndex >= lines.length) {
-        setTimeout(() => redirectToLoginFinal(), 30000);
+        setTimeout(() => redirectToLoginFinal(), 3000000000);
         return;
       }
   
