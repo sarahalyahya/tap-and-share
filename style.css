@@ -296,6 +296,24 @@ body {
   background: #B5E0F3;
 }
 
+.end-session-btn {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  background-color: #ff0050;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.end-session-btn:hover {
+  background-color: #c2003d;
+}
+
 
 
 /* currency */

@@ -43,18 +43,12 @@ const openGlossaryBtn = document.getElementById("open-glossary-btn");
 const closeGlossaryBtn = document.getElementById("close-glossary-btn");
 
 const browserContainer = document.getElementById("browser-container");
-// const browserContainer2 = document.getElementById("b-container");
+
 const openBrowserBtn = document.getElementById("open-browser-btn");
-//const closeBrowserBtn = document.getElementById("close-browser-btn");
+
+const endSessionBtn = document.getElementById("end-session-btn");
 
 
-//random for later, will cause errors when it nears zero i think, so lets have it fixed for now
-// let coinBalance = Math.floor(Math.random()*51); 
-
-// let coinBalance = 50;
-// balanceDisplay = document.getElementById("balance"); 
-// console.log(balanceDisplay);
-// balanceDisplay.textContent = coinBalance; 
 
 const followBtn = document.getElementById('follow-btn');
 const followSymbol = document.getElementById('follow-symbol');
@@ -62,7 +56,6 @@ let followText = document.getElementById('follow-text');
 let alertInterval; 
 let currentUsername = "";
 
-// const infoContainer = document.getElementById('info-container');
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -79,45 +72,12 @@ function createBalance(){
     
 }
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     createBalance();
-// });
+
 
 //so theyre not active on login screen
 let popupsActive = true; 
 
 
-
-
-// allFolders.forEach(folder => {
-//     //randomize the position of each folder -- REVISIT THIS, might want a more orderly start
-//     randomizePosition(folder);
-//     makeDraggable(folder);
-// });
-
-// // in this function, we want to randomize the position of each file object
-// function randomizePosition(folder){
-
-//     //to make it dynamic, there's a folderWidth variable which uses a function - just incase i change the width of the img
-//     const folderImg = document.querySelector(".folderimg");
-//     const folderWidth = folderImg.clientWidth; // Get actual image width
-//     const folderHeight = folderImg.clientHeight;
-//     const padding = 100;
-   
-//     const minX = sidebarWidth + padding; // Start after the sidebar
-//     const maxX = window.innerWidth - folderWidth - padding; // Keep within screen width
-
-//     const minY = padding; // Prevent going off the top
-//     const maxY = window.innerHeight - folderHeight - padding; // Prevent going off the bottom
-
-//     // Generate random X and Y within the allowed space
-//     const randomX = Math.random() * (maxX - minX) + minX;
-//     const randomY = Math.random() * (maxY - minY) + minY;
-
-//     //edit style sheet
-//     folder.style.left = `${randomX}px`;
-//     folder.style.top = `${randomY}px`;
-// }
 
 
 
@@ -180,14 +140,10 @@ function makeInvisible(e){
     loginForm.style.visibility = "hidden";
     sideBar.style.visibility = "visible";
     p5Canvas.style.visibility = "visible";
-    // ();showInfoIcon
+
     makeDraggable(sideBar);
     startTimer(3);
-    //coinContainer.style.visibility = "visible";
-
-    // allFolders.forEach(folder =>{
-    //     folder.style.visibility ="visible";
-    // })
+ 
 
     if (!popupsActive){
         popupsActive = true; 
@@ -197,11 +153,7 @@ function makeInvisible(e){
 
 }; 
 
-// function openFolder(){
-//     //const folderName = folder.querySelector(".file-name").textContent;
-//     //console.log("clicked!");
-//     window.location.href = "videos.html"; // Navigate based on folder name
-// }
+
 
 
 
@@ -260,7 +212,7 @@ async function loadMessages() {
                 const { username, message } = messages[i];
                 addMessage(message, username);
                 i++;
-                setTimeout(displayNextMessage, 2500); // Delay of 1 second before the next message
+                setTimeout(displayNextMessage, 2500); //delay between msgs
             }
         }
 
@@ -288,114 +240,112 @@ function sendMessage() {
         input.value = "";
     }
 }
-// pop up videos
-
-//video array goes here (when there's multiple links)
-
-const URL = "https://vimeo.com/1074064925/d0a93261e7?ts=0&share=copy"; 
 
 
-function generateVidPopup(){
-
-    //create pop up element
-    const videoPopup = document.createElement("div");
-    videoPopup.classList.add("video-popup");
-
-    //choose random vid from array goes here (when there's multiple links)
-
-    //create iframe which goes inside pop up
-    const videoIframe = document.createElement("iframe"); 
-    //  videoIframe.src = `${ytURL}?autoplay=1&modestbranding=1&showinfo=0&controls=0`;
-    videoIframe.src = URL;
-    // videoIframe.width = "200"; 
-    // videoIframe.height = "560";
-    videoIframe.allow = "autoplay; encrypted-media";
+// const URL = "https://vimeo.com/1074064925/d0a93261e7?ts=0&share=copy"; 
 
 
-    //close btn
-    const videoPopupClose = document.createElement("button");
-    videoPopupClose.classList.add("close-btn"); 
-    videoPopupClose.setAttribute("id","popup-close-btn");
-    videoPopupClose.textContent = "X";
-    videoPopupClose.onclick = () => videoPopup.remove();
+// function generateVidPopup(){
 
-    //donate button, needs to be gift specific later aaaaaAAA
-    const videoGiftButton = document.createElement("button");
-    videoGiftButton.classList.add("gift-button");
-    videoGiftButton.textContent = "Gift";
-    videoGiftButton.addEventListener("click",() => updateCoins(-5));
+//     //create pop up element
+//     const videoPopup = document.createElement("div");
+//     videoPopup.classList.add("video-popup");
+
+//     //choose random vid from array goes here (when there's multiple links)
+
+//     //create iframe which goes inside pop up
+//     const videoIframe = document.createElement("iframe"); 
+//     //  videoIframe.src = `${ytURL}?autoplay=1&modestbranding=1&showinfo=0&controls=0`;
+//     videoIframe.src = URL;
+//     // videoIframe.width = "200"; 
+//     // videoIframe.height = "560";
+//     videoIframe.allow = "autoplay; encrypted-media";
+
+
+//     //close btn
+//     const videoPopupClose = document.createElement("button");
+//     videoPopupClose.classList.add("close-btn"); 
+//     videoPopupClose.setAttribute("id","popup-close-btn");
+//     videoPopupClose.textContent = "X";
+//     videoPopupClose.onclick = () => videoPopup.remove();
+
+//     //donate button, needs to be gift specific later aaaaaAAA
+//     const videoGiftButton = document.createElement("button");
+//     videoGiftButton.classList.add("gift-button");
+//     videoGiftButton.textContent = "Gift";
+//     videoGiftButton.addEventListener("click",() => updateCoins(-5));
     
 
    
-    videoPopup.appendChild(videoIframe); 
-    videoPopup.appendChild(videoPopupClose);
-    videoPopup.appendChild(videoGiftButton);
-    document.body.appendChild(videoPopup); 
+//     videoPopup.appendChild(videoIframe); 
+//     videoPopup.appendChild(videoPopupClose);
+//     videoPopup.appendChild(videoGiftButton);
+//     document.body.appendChild(videoPopup); 
 
-  PopupPosition(videoPopup);  
+//   PopupPosition(videoPopup);  
 
-}
-
-
-
-//every 10 seconds rn
-function startVidPopup(){
-    setInterval(generateVidPopup, (Math.random()*50000)); 
-}
-
-function startAdPopup(){
-    setInterval(generateAdPopup, (Math.random()*50000));
-    console.log("yeah I'm here");
-}
-
-//randomize
-function PopupPosition(popup){
-    const padding = 20;
-    const maxX = window.innerWidth - popup.clientWidth - padding;
-    const maxY = window.innerHeight - popup.clientHeight - padding;
-
-    const randomX = Math.random() * (maxX - sidebarWidth) +sidebarWidth; 
-    const randomY = Math.random() * maxY; 
-
-    popup.style.left = `${randomX}px`;
-    popup.style.top = `${randomY}px`;
-
-}
-
-const adImgs = ["assets/ads/cakemarketing.png", "assets/ads/reducedPriceBoxing!.png"]
-
-//pop up ads
-function generateAdPopup(){
-
-    //create pop up element
-    const adPopup = document.createElement("div");
-    adPopup.classList.add("ad-popup");
-
-    //choose random vid from array goes here (when there's multiple links)
-
-    //create iframe which goes inside pop up
-    const adImg = document.createElement("img"); 
-    adImg.src = adImgs[Math.floor(Math.random() * 2)]
+// }
 
 
-    //close btn
-    const adPopupClose = document.createElement("button");
-    adPopupClose.classList.add("close-btn"); 
-    adPopupClose.setAttribute("id","popup-close-btn");
-    adPopupClose.textContent = "X";
-    adPopupClose.onclick = () => adPopup.remove();
 
-    //donate button, needs to be gift specific later aaaaaAAA
+// //every 10 seconds rn
+// function startVidPopup(){
+//     setInterval(generateVidPopup, (Math.random()*50000)); 
+// }
+
+// function startAdPopup(){
+//     setInterval(generateAdPopup, (Math.random()*50000));
+//     console.log("yeah I'm here");
+// }
+
+// //randomize
+// function PopupPosition(popup){
+//     const padding = 20;
+//     const maxX = window.innerWidth - popup.clientWidth - padding;
+//     const maxY = window.innerHeight - popup.clientHeight - padding;
+
+//     const randomX = Math.random() * (maxX - sidebarWidth) +sidebarWidth; 
+//     const randomY = Math.random() * maxY; 
+
+//     popup.style.left = `${randomX}px`;
+//     popup.style.top = `${randomY}px`;
+
+// }
+
+// const adImgs = ["assets/ads/cakemarketing.png", "assets/ads/reducedPriceBoxing!.png"]
+
+// //pop up ads
+// function generateAdPopup(){
+
+//     //create pop up element
+//     const adPopup = document.createElement("div");
+//     adPopup.classList.add("ad-popup");
+
+//     //choose random vid from array goes here (when there's multiple links)
+
+//     //create iframe which goes inside pop up
+//     const adImg = document.createElement("img"); 
+//     adImg.src = adImgs[Math.floor(Math.random() * 2)]
+
+
+//     //close btn
+//     const adPopupClose = document.createElement("button");
+//     adPopupClose.classList.add("close-btn"); 
+//     adPopupClose.setAttribute("id","popup-close-btn");
+//     adPopupClose.textContent = "X";
+//     adPopupClose.onclick = () => adPopup.remove();
+
+//     //donate button, needs to be gift specific later aaaaaAAA
     
 
    
-    adPopup.appendChild(adImg); 
-    adPopup.appendChild(adPopupClose);
-    document.body.appendChild(adPopup); 
+//     adPopup.appendChild(adImg); 
+//     adPopup.appendChild(adPopupClose);
+//     document.body.appendChild(adPopup); 
 
-  PopupPosition(adPopup);  
+//   PopupPosition(adPopup);  
 
-}
+// }
 
 
 function updateCoins(amount){
@@ -492,16 +442,10 @@ openBrowserBtn.addEventListener("click", function(){
     console.log("browser here");
     browserContainer.style.display = "flex";
     startFloatingAlerts();
-     //setInterval(createFloatingAlert, 3000);
-    // resumeVimeoVideos();
-    // openChat();
-    
+     
 })
 
-// closeBrowserBtn.addEventListener("click", function(){
-//     browserContainer.style.display = "none";
-//     console.log("hiding");
-// })
+
 
 const iframes = document.querySelectorAll('iframe');
 
@@ -569,7 +513,7 @@ function updateBalance(giftValue) {
     } else {
         showAlert("Insufficient coins ❕");
         return false;
-     // Show warning if balance is too low, STYLE THIS WARNING! 
+     // Show warning if balance is too low
     }
 }
 
@@ -794,12 +738,7 @@ function redirectToLogin() {
 
  
     // Hide all elements
-    // const browserContainer = document.getElementById("browser-container");
-    // const chatContainer = document.getElementById("chatContainer");
-    // const currencyContainer = document.getElementById("currency-container");
-    // const glossaryContainer = document.getElementById("glossary-container");
-    // const sideBar = document.getElementById("sidebar");
-    // const loginForm = document.getElementById("login");
+    
 
     browserContainer.style.display = "none";
     chatContainer.style.display = "none";
@@ -830,18 +769,12 @@ followBtn.addEventListener('click', function () {
     }
 });
 
-// function showInfoIcon(){
-//   infoContainer.style.display = 'flex'; 
-// }
 
-// function hideInfoIcon(){
-//     infoContainer.style.display = 'none';
-// }
 function showSessionEndPanel() {
     const panel = document.getElementById("session-end-panel");
     const messageBox = document.getElementById("session-message");
   
-    const message = `One evening in 2023, when I lived in the UAE, I received a peculiar TikTok LIVEstream on my feed. It was a stream of a migrant worker camp, one of many that have been systemically hidden and covered up by the government. I wasn’t wise enough at the time to record the livestream, and then I left the country, and all my attempts to find such streams again failed.\n\nAt the beginning of the onslaught on Gaza, I remembered that incident, and wondered whether people in Gaza were taking to TikTok LIVE. I don’t remember what I did, or how I got there, but eventually, I found those streams. \n\nI was spending hours a day with Abou Yazan, Mahmoud, and Tasnim, among many other streamers. As you saw, they were often just repeating scripts or having conversations I didn’t always understand. I stayed with them anyway, because I thought maybe it was better than anything else I could be doing. Sometimes I’d send a comment and ask how they were, or contribute to the conversation, but mostly, I just watched, accompanying them. \n\n Perhaps they did not know of me or my presence, but every morning I would find myself wanting to check on them by seeing if they’re streaming. \n\nDespite TikTok’s exploitative features and biased moderation, I’ve observed that TikTok LIVE has become a space where Gazans can more freely express themselves, even if only marginally. \n\nThis happened in spite of the platform, not because of it.\n\n It was due to the streamers’ ability to quickly learn how to maneuver the platform and tactically avoid its targeted restrictions. \n\nOn TikTok LIVE, streamers gathered together. I would watch family members divided by displacement meet in the strange setting of the platform’s competitive battleground, or watch people from all over the world taking up streaming to translate the words of those from Gaza for their local audience.\n\n\n\nThis piece document the practice of these streamers, who are among the many truth-tellers of Gaza.`;    const lines = message.split("\n");
+    const message = `One evening in 2023, when I lived in the UAE, I received a peculiar TikTok LIVEstream on my feed. It was a stream of a migrant worker camp, one of many that have been systemically hidden and covered up by the government. I wasn’t wise enough at the time to record the livestream, and then I left the country, and all my attempts to find such streams again failed.\n\nAt the beginning of the onslaught on Gaza, I remembered that incident, and wondered whether people in Gaza were taking to TikTok LIVE. I don’t remember what I did, or how I got there, but eventually, I found those streams. \n\nI was spending hours a day with Abou Yazan, Mahmoud, and Tasnim, among many other streamers. As you saw, they were often just repeating scripts or having conversations I didn’t always understand. I stayed with them anyway, because I thought maybe it was better than anything else I could be doing. Sometimes I’d send a comment and ask how they were, or contribute to the conversation, but mostly, I just watched, accompanying them. \n\n Perhaps they did not know of me or my presence, but every morning I would find myself wanting to check on them by seeing if they’re streaming. \n\nDespite TikTok’s exploitative features and biased moderation, TikTok LIVE has become a space where Gazans can more freely express themselves, even if only marginally. \n\nThis happened in spite of the platform, not because of it.\n\n It was due to the streamers’ ability to quickly learn how to maneuver the platform and tactically avoid its targeted restrictions. \n\nOn TikTok LIVE, streamers gathered together. I would watch family members divided by displacement meet in the strange setting of the platform’s competitive battleground, or watch people from all over the world taking up streaming to translate the words of those from Gaza for their local audience.\n\n\n\nThis piece document the practice of these streamers, who are among the many truth-tellers of Gaza.`;    const lines = message.split("\n");
   
     panel.style.display = "flex";
     messageBox.innerHTML = "";
@@ -850,7 +783,7 @@ function showSessionEndPanel() {
   
     function typeLine() {
       if (lineIndex >= lines.length) {
-        setTimeout(() => redirectToLoginFinal(), 6000);
+        setTimeout(() => redirectToLoginFinal(), 30000);
         return;
       }
   
@@ -864,8 +797,11 @@ function showSessionEndPanel() {
       function typeChar() {
         if (charIndex < line.length) {
           p.textContent += line.charAt(charIndex);
+          messageBox.scrollTop = messageBox.scrollHeight;
+
           charIndex++;
-          messageBox.scrollTop = messageBox.scrollHeight; // 🔥 this keeps it scrolling up!
+          
+
           setTimeout(typeChar, 90);
         } else {
           lineIndex++;
@@ -885,6 +821,10 @@ function showSessionEndPanel() {
   
   function redirectToLoginFinal() {
     document.getElementById("session-end-panel").style.display = "none";
-    redirectToLogin(); // your existing login reset function
+    redirectToLogin(); 
   }
   
+
+endSessionBtn.addEventListener("click", () => {
+  showSessionEndPanel(); 
+});
