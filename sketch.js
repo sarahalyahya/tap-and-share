@@ -670,7 +670,7 @@ function showSessionEndPanel() {
   
     setTimeout(() => {
         typeLine();
-    }, 500);
+    }, 200);
   }
   
   
