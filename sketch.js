@@ -623,6 +623,7 @@ followBtn.addEventListener('click', function () {
 
 
 function showSessionEndPanel() {
+    console.log("here");
     stopVimeoVideos();
     stopFloatingAlerts();
     clearInterval(timerInterval);
@@ -682,11 +683,13 @@ function showSessionEndPanel() {
   
 
 endSessionBtn.addEventListener("click", () => {
-   
-        
-    showSessionEndPanel(); 
+    console.log("heree");
+   showSessionEndPanel(); 
   stopVimeoVideos();
+  console.log("hereee");
   stopFloatingAlerts();
+  console.log("hereeee");
   clearInterval(timerInterval);
+  console.log("hereeee");
     
 });
