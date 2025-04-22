@@ -668,7 +668,9 @@ function showSessionEndPanel() {
       typeChar();
     }
   
-    typeLine();
+    setTimeout(() => {
+        typeLine();
+    }, 200);
   }
   
   
