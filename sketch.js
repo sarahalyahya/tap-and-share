@@ -626,7 +626,6 @@ function showSessionEndPanel() {
     console.log("here");
     stopVimeoVideos();
     stopFloatingAlerts();
-    clearInterval(timerInterval);
     const panel = document.getElementById("session-end-panel");
     const messageBox = document.getElementById("session-message");
   
@@ -689,7 +688,6 @@ endSessionBtn.addEventListener("click", () => {
   console.log("hereee");
   stopFloatingAlerts();
   console.log("hereeee");
-  clearInterval(timerInterval);
   console.log("hereeee");
     
 });
