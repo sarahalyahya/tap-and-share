@@ -518,6 +518,8 @@ function startTimer(duration) {
         if (remainingTime <= 0) {
             clearInterval(timerInterval); // Stop the timer when it reaches 0
             showSessionEndPanel(); // Redirect to login screen when the timer ends
+            stopFloatingAlerts();
+            stopVimeoVideos
         } else {
             remainingTime--; // Decrease the remaining time by 1 second
         }
@@ -625,7 +627,8 @@ function showSessionEndPanel() {
     const messageBox = document.getElementById("session-message");
   
     const message = `One evening in 2023, while living in the UAE, I came across a TikTok LIVE of a migrant worker camp, one of many hidden by the government. I didn’t record it, and after I left the country, I never found one like it again.\n\nWhen the genocide in Gaza began, I remembered that stream. I don’t know how I got there, but eventually I found Gazans going LIVE.\n\nI spent hours a day with Abou Yazan, Mahmoud, and Tasnim. They often repeated scripts or spoke in ways I couldn’t follow, but I stayed. Sometimes I’d comment, but mostly I just watched.\n\nThey may not have known I was there, but every morning I’d check in, hoping they were livestreaming.\n\nDespite TikTok’s exploitative systems, TikTok LIVE became a space for Gazans to speak, even if only marginally.\n\nThis was despite the platform, not because of it.\n\nOn TikTok LIVE, streamers gathered together. I would watch family members divided by displacement meet in the strange setting of the platform’s competitive battleground, or watch people from all over the world taking up streaming to translate the words of those from Gaza for their local audience.\n\n\n\nThis work documents the practice of these streamers, who are among the many truth-tellers of Gaza.`;
-  
+    const lines = message.split("\n");
+
     panel.style.display = "flex";
     messageBox.innerHTML = "";
   
@@ -633,7 +636,7 @@ function showSessionEndPanel() {
   
     function typeLine() {
       if (lineIndex >= lines.length) {
-        setTimeout(() => redirectToLoginFinal(), 3000000000);
+        setTimeout(() => redirectToLoginFinal(), 150000);
         return;
       }
   
@@ -677,4 +680,8 @@ function showSessionEndPanel() {
 
 endSessionBtn.addEventListener("click", () => {
   showSessionEndPanel(); 
+  stopVimeoVideos();
+  stopFloatingAlerts();
+  clearInterval(timerInterval);
+    
 });
