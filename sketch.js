@@ -680,7 +680,7 @@ function showSessionEndPanel() {
 
 endSessionBtn.addEventListener("click", () => {
   showSessionEndPanel(); 
-  stopVimeoVideos();
+  stopVimeoVideos;
   stopFloatingAlerts();
   clearInterval(timerInterval);
     
