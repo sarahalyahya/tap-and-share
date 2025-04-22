@@ -519,7 +519,7 @@ function startTimer(duration) {
             clearInterval(timerInterval); // Stop the timer when it reaches 0
             showSessionEndPanel(); // Redirect to login screen when the timer ends
             stopFloatingAlerts();
-            stopVimeoVideos
+            stopVimeoVideos();
         } else {
             remainingTime--; // Decrease the remaining time by 1 second
         }
@@ -623,6 +623,9 @@ followBtn.addEventListener('click', function () {
 
 
 function showSessionEndPanel() {
+    stopVimeoVideos();
+    stopFloatingAlerts();
+    clearInterval(timerInterval);
     const panel = document.getElementById("session-end-panel");
     const messageBox = document.getElementById("session-message");
   
@@ -679,8 +682,10 @@ function showSessionEndPanel() {
   
 
 endSessionBtn.addEventListener("click", () => {
-  showSessionEndPanel(); 
-  stopVimeoVideos;
+   
+        
+    showSessionEndPanel(); 
+  stopVimeoVideos();
   stopFloatingAlerts();
   clearInterval(timerInterval);
     
