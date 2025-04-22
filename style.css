@@ -1375,7 +1375,7 @@ input {
 }
 
 
-@media (min-width: 1365px) and (min-height: 1080px) {
+/* @media (min-width: 1365px) and (min-height: 1080px) {
 
   .browser .browser-header{
     height: 3rem; 
@@ -1383,7 +1383,7 @@ input {
 
   .box-4{
     padding: 4rem 1rem 2.5rem 1rem;
-    height: 20%;
+    height: 15%;
   }
 
   #scroll-txt{
@@ -1395,7 +1395,7 @@ input {
   }
 }
 
-@media (min-width: 1125px) and (max-height: 1050px) {
+@media (min-width: 1125px) and (min-height: 1050px) {
 
   .browser .browser-header{
     height: 3rem; 
@@ -1412,6 +1412,47 @@ input {
   }
   .session-content{
     font-weight: bolder;
+  }
+} */
+
+
+/* 💻 External display — 1080p and up */
+@media (min-width: 1366px) and (min-height: 1000px) {
+  .browser .browser-header {
+    height: 3rem;
+  }
+
+  .box-4 {
+    padding: 4rem 1rem 2.5rem 1rem;
+    height: 20%;
+  }
+
+  #scroll-txt {
+    font-size: 16px;
+  }
+
+  .session-content {
+    font-weight: bolder;
+  }
+}
+
+/* 💻 MacBook size — smaller height */
+@media (min-width: 1366px) and (max-height: 999px) {
+  .browser .browser-header {
+    height: 2.5rem;
+  }
+
+  .box-4 {
+    padding: 3rem 1rem 2rem 1rem;
+    height: 22%;
+  }
+
+  #scroll-txt {
+    font-size: 14px;
+  }
+
+  .session-content {
+    font-weight: normal;
   }
 }
 
