@@ -1020,7 +1020,7 @@ input {
   justify-content: space-between;
   gap:1rem;
   padding: 1rem 1rem 2.5rem 1rem;
-  border-style: solid;
+  
   /* border-color: #FF0050; */
   border-width: 0.15rem;
   height: 10%;
@@ -1384,6 +1384,26 @@ input {
   .box-4{
     padding: 4rem 1rem 2.5rem 1rem;
     height: 15%;
+  }
+
+  #scroll-txt{
+    font-size: 16px;
+    
+  }
+  .session-content{
+    font-weight: bolder;
+  }
+}
+
+@media (min-width: 1125px) and (min-height: 1050px) {
+
+  .browser .browser-header{
+    height: 3rem; 
+  }
+
+  .box-4{
+    padding: 4rem 1rem 2.5rem 1rem;
+    height: 20%;
   }
 
   #scroll-txt{
