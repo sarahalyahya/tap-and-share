@@ -625,9 +625,23 @@ followBtn.addEventListener('click', function () {
 
 
 function showSessionEndPanel() {
+    clearInterval(timerInterval);
+  
+    const timerOverlay = document.getElementById("timer-overlay");
+    if (timerOverlay) {
+      timerOverlay.style.display = "none"; // hide it
+    }
+  
     console.log("here");
     stopVimeoVideos();
     stopFloatingAlerts();
+    browserContainer.style.display = "none";
+    chatContainer.style.display = "none";
+    currencyContainer.style.display = "none";
+    glossaryContainer.style.display = "none";
+    sideBar.style.visibility = "hidden";  // Hide sidebar
+    
+  console.log("HIDING DONE");
     const panel = document.getElementById("session-end-panel");
     const messageBox = document.getElementById("session-message");
   
@@ -691,11 +705,13 @@ endSessionBtn.addEventListener("click", () => {
   stopVimeoVideos();
   stopFloatingAlerts();
 
-  clearInterval(timerInterval);
+//   clearInterval(timerInterval);
   
-  const timerOverlay = document.getElementById("timer-overlay");
-  if (timerOverlay) {
-    timerOverlay.style.display = "none"; // hide it
-  }
+//   const timerOverlay = document.getElementById("timer-overlay");
+//   if (timerOverlay) {
+//     timerOverlay.style.display = "none"; // hide it
+//   }
+
+  
   
 });
