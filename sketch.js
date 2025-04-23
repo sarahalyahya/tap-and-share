@@ -56,6 +56,8 @@ let followText = document.getElementById('follow-text');
 let alertInterval; 
 let currentUsername = "";
 
+let timerInterval;
+
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -502,7 +504,7 @@ function startTimer(duration) {
     const timerOverlay = createTimerOverlay();
     let remainingTime = duration; // Duration in seconds (e.g., 600 seconds = 10 minutes)
     
-    const timerInterval = setInterval(() => {
+     timerInterval = setInterval(() => {
         const minutes = Math.floor(remainingTime / 60); // Get the minutes
         const seconds = remainingTime % 60; // Get the remaining seconds
         timerOverlay.textContent = `⏳${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
@@ -639,7 +641,7 @@ function showSessionEndPanel() {
   
     function typeLine() {
       if (lineIndex >= lines.length) {
-        setTimeout(() => redirectToLoginFinal(), 150000);
+        setTimeout(() => redirectToLoginFinal(), 3);
         return;
       }
   
@@ -687,9 +689,13 @@ endSessionBtn.addEventListener("click", () => {
     console.log("heree");
    showSessionEndPanel(); 
   stopVimeoVideos();
-  console.log("hereee");
   stopFloatingAlerts();
-  console.log("hereeee");
-  console.log("hereeee");
-    
+
+  clearInterval(timerInterval);
+  
+  const timerOverlay = document.getElementById("timer-overlay");
+  if (timerOverlay) {
+    timerOverlay.style.display = "none"; // hide it
+  }
+  
 });
