@@ -651,7 +651,7 @@ function showSessionEndPanel() {
     sideBar.style.visibility = "hidden";  // Hide sidebar
     
   console.log("HIDING DONE");
-    endAudio.volume = 0.7; 
+    endAudio.volume = 1; 
     endAudio.play();
 
     const panel = document.getElementById("session-end-panel");
