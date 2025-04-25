@@ -142,7 +142,7 @@ function makeInvisible(e){
     document.getElementById("sidebar-greeting").textContent = `Hello, ${currentUsername}!`;
    e.preventDefault(); 
     loginForm.style.visibility = "hidden";
-    coinInstruction.innerHTML = `The access code has provided you with <strong>${coinBalance} TikTok Coins</strong> for a limited time indicated by the <strong> ⏳Timer </strong> on the bottom right. Spend them wisely.`;
+    coinInstruction.innerHTML = `The access code has provided you with <strong>${coinBalance} TikTok Coins</strong> for a limited time indicated by the <strong> ⏳Timer </strong> on the bottom left corner. Spend them wisely.`;
     welcomeContainer.style.display = "block"
     makeDraggable(welcomeContainer);
     sideBar.style.visibility = "visible";
