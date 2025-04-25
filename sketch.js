@@ -9,7 +9,6 @@ const loginForm = document.getElementById("login");
 const loginButton = document.getElementById("login-btn");
 
 
-
 const sideBar = document.getElementById("sidebar");
 const sidebarWidth = parseFloat(getComputedStyle(sidebar).width);
 const sideBarHeight = parseFloat(getComputedStyle(sidebar).height);
@@ -151,7 +150,7 @@ function makeInvisible(e){
     p5Canvas.style.visibility = "visible";
 
     makeDraggable(sideBar);
-    startTimer(3);
+    startTimer(900);
  
 
     if (!popupsActive){
@@ -593,6 +592,8 @@ function resumeVimeoVideos() {
 
 // Function to redirect to the login screen after the timer ends
 function redirectToLogin() {
+    document.getElementById("username-field").value = "";
+    document.getElementById("password-field").value = "";
     stopVimeoVideos();
     stopFloatingAlerts();
     
@@ -705,6 +706,8 @@ function showSessionEndPanel() {
   
   
   function redirectToLoginFinal() {
+    document.getElementById("username-field").value = "";
+    document.getElementById("password-field").value = "";
     document.getElementById("session-end-panel").style.display = "none";
     endAudio.pause();
     endAudio.currentTime = 0;
