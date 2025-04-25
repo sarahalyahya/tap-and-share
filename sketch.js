@@ -142,14 +142,16 @@ function makeInvisible(e){
     document.getElementById("sidebar-greeting").textContent = `Hello, ${currentUsername}!`;
    e.preventDefault(); 
     loginForm.style.visibility = "hidden";
-    coinInstruction.innerHTML = `The access code has provided you with <strong>${coinBalance} TikTok Coins</strong> for a limited time indicated by the <strong> ⏳Timer </strong> on the bottom left corner. Spend them wisely.`;
+    coinInstruction.innerHTML = `You’ve unlocked <strong>${coinBalance} TikTok Coins</strong> and access to this session for a limited time. Check the <strong>⏳Timer</strong> in the bottom left.`;
+
+    //coinInstruction.innerHTML = `The access code has provided you with <strong>${coinBalance} TikTok Coins</strong> for a limited time indicated by the <strong> ⏳Timer </strong> on the bottom left corner. Spend them wisely.`;
     welcomeContainer.style.display = "block"
     makeDraggable(welcomeContainer);
     sideBar.style.visibility = "visible";
     p5Canvas.style.visibility = "visible";
 
     makeDraggable(sideBar);
-    startTimer(900);
+    startTimer(3);
  
 
     if (!popupsActive){
