@@ -1456,6 +1456,24 @@ input {
   }
 }
 
+#audio-credit {
+  position: absolute;
+  font-size: 0.75em;
+  bottom: 2vw;
+  left: 2vw;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
 
 

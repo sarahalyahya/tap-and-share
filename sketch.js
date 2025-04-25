@@ -58,6 +58,8 @@ let currentUsername = "";
 
 let timerInterval;
 
+const endAudio = document.getElementById("end-audio");
+
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -140,11 +142,14 @@ function makeInvisible(e){
     document.getElementById("sidebar-greeting").textContent = `Hello, ${currentUsername}!`;
    e.preventDefault(); 
     loginForm.style.visibility = "hidden";
+    coinInstruction.innerHTML = `The access code has provided you with <strong>${coinBalance} TikTok Coins</strong> for a limited time indicated by the <strong> ⏳Timer </strong> on the bottom right. Spend them wisely.`;
+    welcomeContainer.style.display = "block"
+    makeDraggable(welcomeContainer);
     sideBar.style.visibility = "visible";
     p5Canvas.style.visibility = "visible";
 
     makeDraggable(sideBar);
-    startTimer(600);
+    startTimer(900);
  
 
     if (!popupsActive){
@@ -636,12 +641,16 @@ function showSessionEndPanel() {
     stopVimeoVideos();
     stopFloatingAlerts();
     browserContainer.style.display = "none";
+    welcomeContainer.style.display = "none";
     chatContainer.style.display = "none";
     currencyContainer.style.display = "none";
     glossaryContainer.style.display = "none";
     sideBar.style.visibility = "hidden";  // Hide sidebar
     
   console.log("HIDING DONE");
+    endAudio.volume = 0.7; 
+    endAudio.play();
+
     const panel = document.getElementById("session-end-panel");
     const messageBox = document.getElementById("session-message");
   
@@ -655,7 +664,7 @@ function showSessionEndPanel() {
   
     function typeLine() {
       if (lineIndex >= lines.length) {
-        setTimeout(() => redirectToLoginFinal(), 150000);
+        setTimeout(() => redirectToLoginFinal(), 60000);
         return;
       }
   
@@ -695,6 +704,8 @@ function showSessionEndPanel() {
   
   function redirectToLoginFinal() {
     document.getElementById("session-end-panel").style.display = "none";
+    endAudio.pause();
+    endAudio.currentTime = 0;
     redirectToLogin(); 
   }
   
@@ -715,3 +726,5 @@ endSessionBtn.addEventListener("click", () => {
   
   
 });
+
+
