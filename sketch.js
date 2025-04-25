@@ -592,6 +592,7 @@ function resumeVimeoVideos() {
 
 // Function to redirect to the login screen after the timer ends
 function redirectToLogin() {
+    location.reload(true);
     document.getElementById("username-field").value = "";
     document.getElementById("password-field").value = "";
     stopVimeoVideos();
