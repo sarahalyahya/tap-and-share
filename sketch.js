@@ -555,16 +555,13 @@ function createTimerOverlay() {
 function stopVimeoVideos() {
     const iframes = document.querySelectorAll('iframe');
     
-    iframes.forEach(iframe => {
-        // Store the current src
-        const iframeSrc = iframe.src;
 
-        // Remove the iframe src to stop the video
-        iframe.src = '';
+  iframes.forEach(iframe => {
+    iframe.contentWindow.postMessage({ method: 'pause' }, '*');
+    iframe.contentWindow.postMessage({ method: 'setVolume', value: 0 }, '*');
+  });
+  console.log("All Vimeo videos muted and paused.");
 
-        // Optionally mute the video by adding the muted query parameter
-        iframe.src = iframeSrc.split('?')[0] + '?autoplay=0&muted=1'; // Add autoplay=0 to stop and mute it
-    });
 
     // Hide the entire browser container to effectively stop everything
     const browserContainer = document.getElementById("browser-container");
