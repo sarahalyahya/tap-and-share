@@ -770,10 +770,10 @@ body {
 
   flex-direction: column;
   padding: 1.3rem;
-  color: green;
+  color: white; /* white? */
   position: fixed;
   bottom: 5rem;
-  right: 35rem;
+  right: 38rem;
   left: 68rem;
   width: 17rem;
   height: 22rem;
